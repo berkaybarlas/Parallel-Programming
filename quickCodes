@@ -1,0 +1,26 @@
+icc sudoku_solver.c -o sudoku_solver -qopenmp -lm && ./sudoku_solver 16 4x4_hard_1.csv
+icc sudoku_solver_normal.c -o sudoku_solver_n -qopenmp -lm && ./sudoku_solver_n 16 4x4_hard_1.csv
+
+
+icc sudoku_solver_parallel.c -o sudoku_solver_parallel -qopenmp -lm && ./sudoku_solver_parallel 16 4x4_hard_1.csv
+
+icc sudoku_solver_parallel_c.c -o sudoku_solver_parallel_c -qopenmp -lm && ./sudoku_solver_parallel_c 16 4x4_hard_1.csv
+
+icc sudoku_solver_parallel_b.c -o sudoku_solver_parallel_b -qopenmp -lm && ./sudoku_solver_parallel_b 16 4x4_hard_1.csv
+
+
+icc -o test test.c -qopenmp -lm && ./test
+
+bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/
+
+scp submit_job_image.sh bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/image_filter
+
+scp -r submit_job_sudoku_32_2.sh bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/sudoku
+
+scp -r submit_job_sudoku_32_3.sh bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/sudoku
+
+scp bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/image_filter/image-blurring-jobs.out ./
+
+scp bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/sudoku/sudoku-jobs-16.out ./
+
+scp -r sudoku bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/
