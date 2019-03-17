@@ -4,6 +4,8 @@ import time
 import numpy as np
 import matplotlib.ticker as ticker
 
+imgPath = './img/'
+
 class FigureData:
     dataX = []
     dataY = []
@@ -21,6 +23,9 @@ class FigureData:
         self.style = style
 
     def plot(self):
+        plt.clf()
+        plt.ylabel('Speedup Factor')
+        plt.xlabel('Number of Threads')
         plt.title(self.title)
         plt.plot(self.dataX, self.dataY, self.style, color=self.color)
     
@@ -32,14 +37,15 @@ class FigureData:
         self.plot()
         plt.show()
     
-imgPath = './img/'
+
 if not os.path.isdir(imgPath):
             os.mkdir(imgPath)
 printMode = False
 
 if len(sys.argv) > 1:
-    if sys.argv == 1:
-        print("yes")# = True
+    if sys.argv[1] == '1':
+        printMode = True
+
 
 figureDatas = []
 numCores = [1, 2, 4, 8, 16, 32]
