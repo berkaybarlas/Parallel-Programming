@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.17)  17 MAR 2019 23:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.17)  19 MAR 2019 01:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -533,22 +533,22 @@ Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
 ) (/Users/berkaybarlas/Desktop/Comp 429/Parallel-Programming/A1/A1-report.aux)
 \openout1 = `A1-report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
 .................................................
 . chemgreek info: "mapping-activated"
 . 
-. Activating mapping `default' on line 48.
+. Activating mapping `default' on line 50.
 .................................................
  (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -686,97 +686,130 @@ File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
+Underfull \hbox (badness 10000) in paragraph at lines 70--78
 
-LaTeX Warning: Reference `definitions' on page 1 undefined on input line 70.
-
-
-Overfull \hbox (7.37672pt too wide) in paragraph at lines 89--90
-[]\OT1/cmr/m/n/10 32 thread count gives best
  []
 
-<./img/speedup_part_1_A.png, id=1, 462.528pt x 346.896pt>
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 79.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 79.
+ [1
+
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 102--105
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--108
+
+ []
+
+<./img/speedup_part_1_A.png, id=12, 462.528pt x 346.896pt>
 File: ./img/speedup_part_1_A.png Graphic file (type png)
 <use ./img/speedup_part_1_A.png>
-Package pdftex.def Info: ./img/speedup_part_1_A.png  used on input line 98.
+Package pdftex.def Info: ./img/speedup_part_1_A.png  used on input line 121.
 (pdftex.def)             Requested size: 155.24895pt x 116.43451pt.
-<./img/speedup_part_1_A_strawberry.png, id=3, 462.528pt x 346.896pt>
+<./img/speedup_part_1_A_strawberry.png, id=14, 462.528pt x 346.896pt>
 File: ./img/speedup_part_1_A_strawberry.png Graphic file (type png)
 <use ./img/speedup_part_1_A_strawberry.png>
-Package pdftex.def Info: ./img/speedup_part_1_A_strawberry.png  used on input line 103.
+Package pdftex.def Info: ./img/speedup_part_1_A_strawberry.png  used on input line 126.
 (pdftex.def)             Requested size: 155.24895pt x 116.43451pt.
-[1
 
-{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./img/speedup_part_1_A.png> <./img/speedup_part_1_A_strawberry.png>]
-<./img/binding_part_1_B_coffee.png, id=18, 462.528pt x 346.896pt>
+Underfull \hbox (badness 10000) in paragraph at lines 132--137
+
+ []
+
+[2 <./img/speedup_part_1_A.png> <./img/speedup_part_1_A_strawberry.png>]
+<./img/binding_part_1_B_coffee.png, id=22, 462.528pt x 346.896pt>
 File: ./img/binding_part_1_B_coffee.png Graphic file (type png)
 <use ./img/binding_part_1_B_coffee.png>
-Package pdftex.def Info: ./img/binding_part_1_B_coffee.png  used on input line 126.
+Package pdftex.def Info: ./img/binding_part_1_B_coffee.png  used on input line 152.
 (pdftex.def)             Requested size: 155.24895pt x 116.43451pt.
-<./img/binding_part_1_B_strawberry.png, id=19, 462.528pt x 346.896pt>
+<./img/binding_part_1_B_strawberry.png, id=23, 462.528pt x 346.896pt>
 File: ./img/binding_part_1_B_strawberry.png Graphic file (type png)
 <use ./img/binding_part_1_B_strawberry.png>
-Package pdftex.def Info: ./img/binding_part_1_B_strawberry.png  used on input line 131.
+Package pdftex.def Info: ./img/binding_part_1_B_strawberry.png  used on input line 157.
 (pdftex.def)             Requested size: 155.24895pt x 116.43451pt.
- [2 <./img/binding_part_1_B_coffee.png> <./img/binding_part_1_B_strawberry.png>]
-<./img/speedup_part_2_A.png, id=25, 462.528pt x 346.896pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--169
+
+ []
+
+[3 <./img/binding_part_1_B_coffee.png> <./img/binding_part_1_B_strawberry.png>]
+<./img/speedup_part_2_A.png, id=29, 462.528pt x 346.896pt>
 File: ./img/speedup_part_2_A.png Graphic file (type png)
 <use ./img/speedup_part_2_A.png>
-Package pdftex.def Info: ./img/speedup_part_2_A.png  used on input line 163.
-(pdftex.def)             Requested size: 345.0pt x 258.76335pt.
- [3 <./img/speedup_part_2_A.png>]
-<./img/speedup_part_2_B.png, id=30, 462.528pt x 346.896pt>
+Package pdftex.def Info: ./img/speedup_part_2_A.png  used on input line 192.
+(pdftex.def)             Requested size: 276.00105pt x 207.01175pt.
+ [4 <./img/speedup_part_2_A.png>]
+<./img/speedup_part_2_B.png, id=34, 462.528pt x 346.896pt>
 File: ./img/speedup_part_2_B.png Graphic file (type png)
 <use ./img/speedup_part_2_B.png>
-Package pdftex.def Info: ./img/speedup_part_2_B.png  used on input line 178.
+Package pdftex.def Info: ./img/speedup_part_2_B.png  used on input line 214.
 (pdftex.def)             Requested size: 345.0pt x 258.76335pt.
- [4 <./img/speedup_part_2_B.png>]
-<./img/speedup_part_2_C.png, id=35, 462.528pt x 346.896pt>
+ [5 <./img/speedup_part_2_B.png>]
+<./img/speedup_part_2_C.png, id=39, 462.528pt x 346.896pt>
 File: ./img/speedup_part_2_C.png Graphic file (type png)
 <use ./img/speedup_part_2_C.png>
-Package pdftex.def Info: ./img/speedup_part_2_C.png  used on input line 194.
+Package pdftex.def Info: ./img/speedup_part_2_C.png  used on input line 245.
 (pdftex.def)             Requested size: 345.0pt x 258.76335pt.
- [5 <./img/speedup_part_2_C.png>]
-<./img/binding_part_2_A.png, id=40, 462.528pt x 346.896pt>
+ [6 <./img/speedup_part_2_C.png>]
+<./img/binding_part_2_A.png, id=44, 462.528pt x 346.896pt>
 File: ./img/binding_part_2_A.png Graphic file (type png)
 <use ./img/binding_part_2_A.png>
-Package pdftex.def Info: ./img/binding_part_2_A.png  used on input line 207.
+Package pdftex.def Info: ./img/binding_part_2_A.png  used on input line 260.
 (pdftex.def)             Requested size: 345.0pt x 258.76335pt.
- [6 <./img/binding_part_2_A.png>]
-<./img/binding_part_2_B.png, id=45, 462.528pt x 346.896pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--269
+
+ []
+
+[7 <./img/binding_part_2_A.png>]
+<./img/binding_part_2_B.png, id=50, 462.528pt x 346.896pt>
 File: ./img/binding_part_2_B.png Graphic file (type png)
 <use ./img/binding_part_2_B.png>
-Package pdftex.def Info: ./img/binding_part_2_B.png  used on input line 219.
+Package pdftex.def Info: ./img/binding_part_2_B.png  used on input line 279.
 (pdftex.def)             Requested size: 345.0pt x 258.76335pt.
- [7 <./img/binding_part_2_B.png>]
-<./img/binding_part_2_C.png, id=51, 462.528pt x 346.896pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 282--288
+
+ []
+
+[8 <./img/binding_part_2_B.png>]
+<./img/binding_part_2_C.png, id=55, 462.528pt x 346.896pt>
 File: ./img/binding_part_2_C.png Graphic file (type png)
 <use ./img/binding_part_2_C.png>
-Package pdftex.def Info: ./img/binding_part_2_C.png  used on input line 231.
+Package pdftex.def Info: ./img/binding_part_2_C.png  used on input line 297.
 (pdftex.def)             Requested size: 345.0pt x 258.76335pt.
- [8 <./img/binding_part_2_C.png>]
-<./img/grids_part_2_B.png, id=56, 462.528pt x 346.896pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--306
+
+ []
+
+[9 <./img/binding_part_2_C.png>]
+<./img/grids_part_2_B.png, id=60, 462.528pt x 346.896pt>
 File: ./img/grids_part_2_B.png Graphic file (type png)
 <use ./img/grids_part_2_B.png>
-Package pdftex.def Info: ./img/grids_part_2_B.png  used on input line 243.
+Package pdftex.def Info: ./img/grids_part_2_B.png  used on input line 315.
 (pdftex.def)             Requested size: 345.0pt x 258.76335pt.
- [9 <./img/grids_part_2_B.png>] (/Users/berkaybarlas/Desktop/Comp 429/Parallel-Programming/A1/A1-report.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+ [10 <./img/grids_part_2_B.png>] (/Users/berkaybarlas/Desktop/Comp 429/Parallel-Programming/A1/A1-report.aux) ) 
 Here is how much of TeX's memory you used:
- 15176 strings out of 492649
- 313824 string characters out of 6129622
- 355725 words of memory out of 5000000
- 18962 multiletter control sequences out of 15000+600000
+ 15197 strings out of 492649
+ 314193 string characters out of 6129622
+ 355747 words of memory out of 5000000
+ 18980 multiletter control sequences out of 15000+600000
  539422 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,8n,39p,10500b,529s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "/Users/berkaybarlas/Desktop/Comp 429/Parallel-Programming/A1/A1-report.pdf" (9 pages, 298873 bytes).
+ 41i,13n,46p,10500b,531s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on "/Users/berkaybarlas/Desktop/Comp 429/Parallel-Programming/A1/A1-report.pdf" (10 pages, 319031 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 100 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
