@@ -52,7 +52,7 @@ double *** loadImage(const char *filename, int * width, int * height)
         imageMatrix[1][h] = (double *) malloc ((*width * 3) * sizeof(double));
         imageMatrix[2][h] = (double *) malloc ((*width * 3) * sizeof(double));
     }
-    #pragma omp for collapse(2)
+    #pragma omp parallel for collapse(2)
     for (h=0 ; h < *height ; h++) {
         for (w=0 ; w < *width ; w++) {
             imageMatrix[0][h][w] = rgb_image[h*(*width * 3)+w*3];
@@ -100,16 +100,18 @@ double *** applyFilter(double *** image, double ** filter, int width, int height
 	newImage[1][h] = (double *) malloc ((width * 3) * sizeof(double));
 	newImage[2][h] = (double *) malloc ((width * 3) * sizeof(double));
     }
-    //Diagonal implement
+    
     #pragma omp parallel for collapse(3)
     for (d=0 ; d<3 ; d++) {
         for (i=0 ; i<newImageHeight ; i++) {
             for (j=0 ; j<newImageWidth ; j++) {
-                for (h=i ; h<i+filterHeight ; h++) {
-                    for (w=j ; w<j+filterWidth ; w++) {
-                        newImage[d][i][j] += filter[h-i][w-j]*image[d][h][w];
+                #pragma omp parallel for firstprivate(i,j,d)
+                for (h=0 ; h<filterHeight ; h++) {
+                    for (w=0 ; w<filterWidth ; w++) {
+                        newImage[d][i][j] += filter[h][w]*image[d][h+i][w+j];
                     }
                 }
+
             }
         }
     }
@@ -121,7 +123,7 @@ void averageRGB(double *** image, int width, int height) {
 	double sum[3] = { 0.0 };
 	int i, j, k;
 
-    #pragma omp parallel for reduction(+:sum) collapse(2)
+    #pragma omp parallel for collapse(2) reduction(+:sum) 
 	for (i=0 ; i<3 ; i++) {
         	for (j=0 ; j<height ; j++) {
             		for (k=0 ; k<width ; k++) {

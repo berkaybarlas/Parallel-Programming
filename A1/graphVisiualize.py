@@ -3,6 +3,8 @@ import os, sys
 import time
 import numpy as np
 import matplotlib.ticker as ticker
+from matplotlib.ticker import MultipleLocator, FuncFormatter
+import matplotlib
 
 imgPath = './img/'
 
@@ -13,19 +15,26 @@ class FigureData:
     title = ''
     color = 'g'
     style = '-o'
+    xlabel = True
 
-    def __init__(self, dataX, dataY, title, filename, color = 'g' ,style = '-o'):
+    def __init__(self, dataX, dataY, title, filename, color = 'g' ,style = '-o', xlabel = True):
         self.dataX = dataX
         self.dataY = dataY
         self.title = title
         self.filename = fileName
         self.color = color
         self.style = style
+        self.xlabel = xlabel
 
     def plot(self):
         plt.clf()
+
         plt.ylabel('Speedup Factor')
-        plt.xlabel('Number of Threads')
+        if self.xlabel:
+            plt.xlabel('Number of Threads')
+            tick_values = [2**x for x in range(0,6)]
+            plt.xticks(tick_values,[("%.0f" % x)  for x in tick_values])
+        plt.yticks(self.dataY,[("%.2f" % x)  for x in self.dataY])
         plt.title(self.title)
         plt.plot(self.dataX, self.dataY, self.style, color=self.color)
     
@@ -79,7 +88,7 @@ speedup_part1B_coffee = [serial_part1B_coffee / x for x in speedup_part1B_coffee
 title =' Thread Binding Image Blurring Coffee'
 fileName = 'binding_part_1_B_coffee'
 
-partB_coffee = FigureData(['Compact','Scatter'], speedup_part1B_coffee, title, fileName, 'red', 'o')
+partB_coffee = FigureData(['Compact','Scatter'], speedup_part1B_coffee, title, fileName, 'red', 'o', False)
 figureDatas.append(partB_coffee)
 ##
 
@@ -90,7 +99,7 @@ speedup_part1B_strawberry = [serial_part1B_strawberry / x for x in speedup_part1
 title =' Thread Binding Image Blurring Strawberry'
 fileName = 'binding_part_1_B_strawberry'
 
-partB_strawberry = FigureData(['Compact','Scatter'], speedup_part1B_strawberry, title, fileName, 'red', 'o')
+partB_strawberry = FigureData(['Compact','Scatter'], speedup_part1B_strawberry, title, fileName, 'red', 'o', False)
 figureDatas.append(partB_strawberry)
 ##
 
@@ -133,7 +142,7 @@ bindging_part2A = [serial_part2A / x for x in bindging_part2A]
 title =' Thread Binding Sudoku Part A 4x4_hard3.csv'
 fileName = 'binding_part_2_A'
 
-partA_sudoku_binding = FigureData(['Compact','Scatter'], bindging_part2A, title, fileName, 'red', 'o')
+partA_sudoku_binding = FigureData(['Compact','Scatter'], bindging_part2A, title, fileName, 'red', 'o', False)
 figureDatas.append(partA_sudoku_binding)
 ##
 
@@ -143,7 +152,7 @@ bindging_part2B = [serial_part2A / x for x in bindging_part2B]
 title =' Thread Binding Sudoku Part B 4x4_hard3.csv'
 fileName = 'binding_part_2_B'
 
-partB_sudoku_binding = FigureData(['Compact','Scatter'], bindging_part2B, title, fileName, 'red', 'o')
+partB_sudoku_binding = FigureData(['Compact','Scatter'], bindging_part2B, title, fileName, 'red', 'o', False)
 figureDatas.append(partB_sudoku_binding)
 ##
 
@@ -153,19 +162,20 @@ bindging_part2C = [serial_part2C / x for x in bindging_part2C]
 title =' Thread Binding Sudoku Part C 4x4_hard3.csv'
 fileName = 'binding_part_2_C'
 
-partC_sudoku_binding = FigureData(['Compact','Scatter'], bindging_part2C, title, fileName, 'red', 'o')
+partC_sudoku_binding = FigureData(['Compact','Scatter'], bindging_part2C, title, fileName, 'red', 'o', False)
 figureDatas.append(partC_sudoku_binding)
 ##
 
 # Part 2 c) B#
-serial_hard1 = 23.61
-serial_hard2 = 44.15
-speedup_32_core = [serial_hard1 / 1.79, serial_hard2 / 3.40 , serial_part2A / 3.60]
+serial_hard1 = 23.68
+serial_hard2 = 44.04
+serial_hard3 = 47.39
+speedup_32_core = [serial_hard1 / 1.72, serial_hard2 / 3.11 , serial_hard3 / 3.27]
 #speedup_32_core = [serial_part2A / x for x in speedup_32_core]
-title ='Sudoku with Different Grids Part B - 32 Thread Cutoff: 30'
+title ='Sudoku with Different Grids Part B - with 32 Thread and Cutoff: 40'
 fileName = 'grids_part_2_B'
 
-partB_sudoku_32 = FigureData(['4x4_hard1','4x4_hard2','4x4_hard3'], speedup_32_core, title, fileName, 'red', 'o')
+partB_sudoku_32 = FigureData(['4x4_hard1','4x4_hard2','4x4_hard3'], speedup_32_core, title, fileName, 'red', 'o', False)
 figureDatas.append(partB_sudoku_32)
 ##
 
