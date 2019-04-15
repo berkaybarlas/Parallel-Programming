@@ -6,12 +6,12 @@
 #
 # -= Resources =-
 #
-#SBATCH --job-name=16-1-image-blurring-jobs
+#SBATCH --job-name=16-2-image-blurring-jobs
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=16
 #SBATCH --partition=short
 #SBATCH --time=00:30:00
-#SBATCH --output=image-blurring-jobs-16-1.out
+#SBATCH --output=image-blurring-jobs-16-2.out
 
 ################################################################################
 ##################### !!! DO NOT EDIT ABOVE THIS LINE !!! ######################

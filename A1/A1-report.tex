@@ -28,6 +28,33 @@
 \usepackage{amsmath} % Required for some math elements 
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{listings}
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codepurple},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
 
 \setlength\parindent{0pt} % Removes all indentation from paragraphs
 
@@ -67,9 +94,9 @@ Instructor: & Didem Unat % Instructor/supervisor
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
-In this assignment I developed my parallel implementations 
+\tab In this assignment I developed my parallel implementations 
 on top of given serial version for two different applications;
-\newline an image blurring algorithm and sudoku solver using OpenMP. 
+an image blurring algorithm and sudoku solver using OpenMP. 
 \newline While the first application in data parallelism, 
 the second application in task parallelism. 
 \newline
@@ -86,14 +113,23 @@ In this assignment I have completed
 \section{Part I: Image Blurring}
 
 
-\tab{} In the first part of this assignment I implemented a parallel version of a simple image blurring algorithm with OpenMP which takes an input image and outputs a blurred image.
+\tab In the first part of this assignment I implemented 
+a parallel version of a simple image blurring algorithm with
+OpenMP which takes an input image and outputs a blurred image.
 \\
-\tab{} The image is represented as a 2-dimensional grid with three components.  
-After reading the image to be filtered, the program generates an n by n filter. 
-The filter is then applied to blur every pixel in the image. 
-For pixels which are located along/near the edges of the image, zero padding technique is used to add additional zero-valued pixels beyond the edges of the image.
-
-%\begin{center}\ce{2 Mg + O2 -> 2 MgO}\end{center}
+\tab I used \#pragma omp for collapse() in getGaussian(), loadImage(), saveImage(), applyFilter(), averageRGB() 
+methods since all of have nested for loops that can be parallelized. The biggest nested for loop is in applyFilter() 
+and it can be parallelizable as below. collapse(5) can not be used because last two for loops depends on previous loops.
+\begin{lstlisting}[language=C]
+    #pragma omp parallel for collapse(3)
+    for (d=0 ; d<3 ; d++) {
+     for (i=0 ; i<newImageHeight ; i++) {
+      for (j=0 ; j<newImageWidth ; j++) {
+       for (h=0 ; h<filterHeight ; h++) {
+        for (w=0 ; w<filterWidth ; w++) {
+            newImage[d][i][j] += filter[h][w]*image[d][h+i][w+j];
+    }}}}}
+\end{lstlisting}
 
 \newpage
 \subsection{Stability Test}
@@ -131,11 +167,11 @@ For pixels which are located along/near the edges of the image, zero padding tec
 
 \textbf{Explanation of Speedup Curve}
 \\
+\tab Due to parallization overhead a speedup with value bigger than 1 is observed after 4 threads for both applications. \\
 \tab Even though, a linear/perfect speedup is not expected the results are actually worse than what is expected.
-The 32 thread parallel version on 32 core cluster gives only around 2x speedup.\\
-The reasons of that is some part of the code is non-parallelizable such as ...\\
-The reasons of that is the number of parallel sections in the code ...
-\\ Weak scaling example
+Even the parallel version with 32 thread on 32 core cluster gives only around 2x speedup.\\
+One of reasons of that is intel compiler optimizations in serial version which is already very fast.\\
+
 \newpage
 
 \subsection{Thread Binding Test}
@@ -166,7 +202,7 @@ while in the scatter mapping, the threads are distributed as evenly as possible 
 when neighbouring threads are accessing the same(Temporal Locality) or nearby data(Spatial Locality);
 the data which is brought into the cache by one thread can be used 
 by the other, avoiding a costly memory access.
-\\ Talk about Caching.
+If the tasks were longer scatter could perform better. 
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
@@ -177,6 +213,85 @@ by the other, avoiding a costly memory access.
 \tab In the second part of this assignment, I parallelized a serial sudoku solver with OpenMP
 which takes a sudoku problem as an input and finds all possible solutions from it 
 using a brute force search for searching by all possible solutions to the problem. 
+\\ \textbf{Part A}
+\\ \tab In this Part, I defined parallel section while calling solveSudoku() method. I used \#pragma omp task in different places inside solveSudoku() method, after several run and experiments using I selected the one that gives best performance.
+\begin{lstlisting}[language=C]
+if(matrix[row][col] != EMPTY) {
+//#pragma omp task firstprivate(col, row)
+    if (solveSudoku(row, col+1, matrix, box_sz, grid_sz)) { 
+            printMatrix(matrix, box_sz); 
+    }
+} else {
+int num;
+  for (num = 1; num <= box_sz; num++) 
+  { 					
+   if (canBeFilled(matrix, row, col, num, box_sz, grid_sz)) 
+   {  
+    #pragma omp task firstprivate(num, col, row)
+    {
+     int tempMatrix[MAX_SIZE][MAX_SIZE];
+     int i;
+     int j;
+     for(i=0; i<box_sz; i++) {
+         for( j=0; j<box_sz; j++){
+             tempMatrix[i][j] = matrix[i][j];
+         }
+     }
+     tempMatrix[row][col] = num; 				
+     if (solveSudoku(row, col+1, tempMatrix, box_sz, grid_sz)) 
+         printMatrix(tempMatrix, box_sz);
+    }					
+   }
+  }
+}		
+\end{lstlisting}
+\newpage
+
+\textbf{Part B}
+\\ \tab In this Part, I changed funtion signature to pass the task depth. Every time, a new task is created 
+the depth value is incereased by 1 and passed to recursive method as parameter.
+\\ \tab To find a good cutoff value I run the program with different cutoff parameters. Overall cutoff value 30 gived the best result.
+\begin{lstlisting}[language=C]
+if (canBeFilled(matrix, row, col, num, box_sz, grid_sz)) 
+{  
+ #pragma omp task firstprivate(num, col, row, depth) if (depth < MAX_DEPTH)
+ {
+  depth++;
+  int tempMatrix[MAX_SIZE][MAX_SIZE];
+  int i;
+  int j;
+  for(i=0; i<box_sz; i++) {
+      for( j=0; j<box_sz; j++){
+          tempMatrix[i][j] = matrix[i][j];
+      }
+  }
+  tempMatrix[row][col] = num; 				
+  if (solveSudoku(row, col+1, tempMatrix, box_sz, grid_sz, depth)) 
+      printMatrix(tempMatrix, box_sz);
+ }					
+}
+\end{lstlisting}
+
+\textbf{Part C}
+\\ \tab In this Part, I created a shared variable found and passed it as 
+parameter to solveSudoku function which stops priting solution and creation of new tasks.  
+\begin{lstlisting}[language=C]
+#pragma omp parallel shared(found)
+{
+	#pragma omp single 
+	{
+	solveSudoku(0, 0, matrix, box_sz, grid_sz, &found);
+	}
+}
+\end{lstlisting}
+I also used \#pragma omp critical when I changing value of found.
+\begin{lstlisting}[language=C]
+    ...
+    #pragma omp critical
+        *found = 1; 
+    ...
+\end{lstlisting}
+\newpage
 
 \subsection{Scalability Test}
 \subsubsection{Part A}
@@ -195,10 +310,10 @@ using a brute force search for searching by all possible solutions to the proble
 \end{figure}                
 
 \textbf{Explanation of Speedup Curve}\\
-\tab The task Parallization of serial version results in the creation of too many different task
-which causes to a great overhead.
-Therefore, the speedup results are lower than expected. Even with 32 thread speedup is just around 2.
-\tab WHY IS NOT LINEAR
+\tab Due to parallization overhead a speedup with value bigger than 1 is observed after 2 threads. \\
+\tab The task Parallization of serial version results in the creation of different task
+causes to a great overhead.
+Therefore, the speedup results are lower than expected. Even with 32 thread speedup is just around 11.
 \newpage
 
 \subsubsection{Part B}
@@ -216,6 +331,7 @@ Therefore, the speedup results are lower than expected. Even with 32 thread spee
         \caption{Results for the blurring on strawberry image.}
 \end{figure}
 \textbf{Explanation of Speedup Curve}\\
+\tab Due to parallization overhead a speedup with value bigger than 1 is observed after 2 threads. \\
 \tab In order to improve the performance of the previous parallel version, a cutoff parameter 
 to limit the number of parallel tasks is needed.\\
 \tab I defined a variable called depth and passed it as parameter to recursive method  
@@ -267,10 +383,10 @@ one of the tasks already find a solution.
 \end{figure}
 \textbf{Which Mapping Gives Better Performance, Why?}\\
 \\ \tab Compact gives better performance for both images because 
-when neighbouring threads are accessing the same or nearby data;
+when neighbouring threads are accessing the same(Temporal Locality) or nearby data(Spatial Locality);
 the data which is brought into the cache by one thread can be used 
 by the other, avoiding a costly memory access.
-\\ Talk about Caching.
+If the tasks were longer scatter could perform better. 
 
 
 \newpage
@@ -286,10 +402,10 @@ by the other, avoiding a costly memory access.
 \end{figure}
 \textbf{Which Mapping Gives Better Performance, Why?}\\
 \\ \tab Compact gives better performance for both images because 
-when neighbouring threads are accessing the same or nearby data;
+when neighbouring threads are accessing the same(Temporal Locality) or nearby data(Spatial Locality);
 the data which is brought into the cache by one thread can be used 
 by the other, avoiding a costly memory access.
-\\ Talk about Caching.
+If the tasks were longer scatter could perform better. 
 
 \newpage
 
@@ -307,7 +423,7 @@ by the other, avoiding a costly memory access.
 when neighbouring threads are accessing the same(Temporal Locality) or nearby data(Spatial Locality);
 the data which is brought into the cache by one thread can be used 
 by the other, avoiding a costly memory access.
-\\ Talk about Caching.
+If the tasks were longer scatter could perform better. 
 
 \newpage
 
@@ -334,15 +450,14 @@ increased the execution time ratio of parallelizable partion over non-paralleliz
 \begin{item}
     \emph{Speedup} 
     \begin{equation*}
-    \frac{\mathrm{T1}}{\mathrm{Tp}}
+    Speedup  = \frac{\mathrm{T1}}{\mathrm{Tp}}
     %\begin{center}\ce{}\end{center}
     \end{equation*}
-    \begin{center}\ce{Speedup = T1 / Tp}\end{center}
 \end{item}
 \begin{item}
     \emph{Amdahl's Law} 
     \begin{equation*}
-    \frac{\mathrm{T1}}{\mathrm{Tp}}
+    Tp \geq Wserial + \frac{\mathrm{Wparallel}}{\mathrm{P}}
     %\begin{center}\ce{}\end{center}
     \end{equation*}
 \end{item}

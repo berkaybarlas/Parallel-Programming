@@ -1,3 +1,5 @@
+ module load intel/ipsxe2019-u1ce
+
 icc sudoku_solver.c -o sudoku_solver -qopenmp -lm && ./sudoku_solver 16 4x4_hard_1.csv
 icc sudoku_solver_normal.c -o sudoku_solver_n -qopenmp -lm && ./sudoku_solver_n 16 4x4_hard_1.csv
 

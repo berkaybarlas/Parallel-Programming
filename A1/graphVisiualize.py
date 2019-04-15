@@ -105,12 +105,12 @@ figureDatas.append(partB_strawberry)
 
 # Data Sudoku hard3 A #
 serial_part2A = 48.10
-speedup_part2A = [78.69, 47.05, 26.63, 14.72, 7.42, 3.79]
+speedup_part2A = [78.69, 47.05, 26.63, 14.72, 7.42, 4.29]
 speedup_part2A = [serial_part2A / x for x in speedup_part2A]
 fileName = 'speedup_part_2_A'
 title ='Speedup Sudoku Part A 4x4_hard3.csv'
 
-partA_sudoku_speedup_hard3 = FigureData(numCores, speedup_part1A, title, fileName)
+partA_sudoku_speedup_hard3 = FigureData(numCores, speedup_part2A, title, fileName)
 figureDatas.append(partA_sudoku_speedup_hard3)
 ##
 

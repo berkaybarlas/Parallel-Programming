@@ -20,7 +20,6 @@ double ** getGaussian(int width, int height, double sigma)
         for (i=0 ; i<height ; i++) {
             for (j=0 ; j<width ; j++) {
                 kernel[i][j] = exp(-(i*i+j*j)/(2*sigma*sigma))/(2*M_PI*sigma*sigma);
-                #pragma omp critical
                 sum += kernel[i][j];
             }
         }
@@ -52,7 +51,7 @@ double *** loadImage(const char *filename, int * width, int * height)
         imageMatrix[1][h] = (double *) malloc ((*width * 3) * sizeof(double));
         imageMatrix[2][h] = (double *) malloc ((*width * 3) * sizeof(double));
     }
-    #pragma omp parallel for collapse(2)
+    #pragma omp parallel for collapse(2) 
     for (h=0 ; h < *height ; h++) {
         for (w=0 ; w < *width ; w++) {
             imageMatrix[0][h][w] = rgb_image[h*(*width * 3)+w*3];
@@ -93,7 +92,6 @@ double *** applyFilter(double *** image, double ** filter, int width, int height
     newImage[1] = (double **) malloc (height * sizeof(double *));
     newImage[2] = (double **) malloc (height * sizeof(double *));
     
-    {
     
     for (h=0 ; h < height ; h++) {
 	newImage[0][h] = (double *) malloc ((width * 3) * sizeof(double)); 
@@ -105,17 +103,15 @@ double *** applyFilter(double *** image, double ** filter, int width, int height
     for (d=0 ; d<3 ; d++) {
         for (i=0 ; i<newImageHeight ; i++) {
             for (j=0 ; j<newImageWidth ; j++) {
-                #pragma omp parallel for firstprivate(i,j,d)
                 for (h=0 ; h<filterHeight ; h++) {
                     for (w=0 ; w<filterWidth ; w++) {
                         newImage[d][i][j] += filter[h][w]*image[d][h+i][w+j];
                     }
                 }
-
             }
         }
     }
-    }
+    
     return newImage;
 }
 
@@ -123,7 +119,7 @@ void averageRGB(double *** image, int width, int height) {
 	double sum[3] = { 0.0 };
 	int i, j, k;
 
-    #pragma omp parallel for collapse(2) reduction(+:sum) 
+    #pragma omp parallel for collapse(3) reduction(+:sum) 
 	for (i=0 ; i<3 ; i++) {
         	for (j=0 ; j<height ; j++) {
             		for (k=0 ; k<width ; k++) {
