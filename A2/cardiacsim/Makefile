@@ -6,11 +6,15 @@ include ./arch.gnu
 
 app:		cardiacsim
 
-OBJECTS = cardiacsim.o splot.o cmdLine.o
+OBJECTS = cardiacsim.o splot.o cmdLine.o 
 
 cardiacsim:	        $(OBJECTS) 
 		$(C++LINK) $(LDFLAGS) -o $@ $(OBJECTS)  $(LDLIBS)
+intel:	        $(OBJECTS) 
+		icc $(LDFLAGS) -o $@ $(OBJECTS)  $(LDLIBS)
 
+test: test.o
+	$(C++LINK) $(LDFLAGS) -o $@ test.o  $(LDLIBS)
 clean:	
 	$(RM) *.o cardiacsim *~;
 	$(RM) core;

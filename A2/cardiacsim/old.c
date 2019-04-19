@@ -79,21 +79,6 @@ extern "C" {
 }
 void cmdLine(int argc, char *argv[], double& T, int& n, int& px, int& py, int& plot_freq, int& no_comm, int&num_threads);
 
-void addPadding(double** src, double** target, int m, int n) {
-for (j=1; j<=m; j++){
-      for (i=1; i<=n; i++) {
-	target[j][i] = src[j-1][i-1];
-      }
-    }
-}
-
-void removePadding(double** src, double** target, int m, int n) {
-for (j=1; j<=m; j++){
-      for (i=1; i<=n; i++) {
-	target[j-1][i-1] = src[j][i];
-      }
-    }
-}
 
 void simulate (double** E,  double** E_prev,double** R,
 	       const double alpha, const int n, const int m, const double kk,
@@ -147,46 +132,13 @@ void simulate (double** E,  double** E_prev,double** R,
     
 }
 
-void divideData(double** src, double* dst, int x, int y, int n, int m) {
-
-int sizes[2]    = {n, m};         /* global size */
-int subsizes[2] = {x, y};     /* local size */
-int starts[2]   = {0,0};    
-MPI_Datatype type, subarrtype;
-MPI_Type_create_subarray(2, sizes, subsizes, starts, MPI_ORDER_C, MPI_DOUBLE, &type);
-MPI_Type_create_resized(type, 0, x*sizeof(double), &subarrtype);
-MPI_Type_commit(&subarrtype);
-
-
-if (rank != 0) 
-  src = NULL;
-
-  /* scatter the array to all processors */
-  int px = n / x; // px 
-  int py = n / y; // py
-  int sendcounts[px*py];
-  int displs[px*py];
-
-  if (rank == 0) 
-  {
-      for (int i=0; i<px*py; i++) 
-        sendcounts[i] = 1;
-      int disp = 0;
-      for (int i=0; i<py; i++) {
-          for (int j=0; j<px; j++) {
-              displs[i*py+j] = disp;
-              disp += 1;
-          }
-          disp += px * (py - 1);
-      }
-  }
-
-MPI_Scatterv(globalptr, sendcounts, displs, subarrtype, &(local[0][0]),
-             gridsize*gridsize/(procgridsize*procgridsize), MPI_CHAR,
-             0, MPI_COMM_WORLD);
-MPI_Scatterv(src, counts, displs, MPI_DOUBLE, 
-              dst, mynum, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-
+void divideData(double** src, double* dst, int x, int y) {
+  int box_size = x * y ;
+  //MPI_Scatterv(src, box_size, box_size, MPI_DOUBLE, 
+  //            dst, box_size, MPI_DOULBE, 0, MPI_COMM_WORLD);
+   MPI_Scatter(&src[1][0], box_size, MPI_DOUBLE, 
+              dst, box_size, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+   
 }
 
 void collectData(double** src, double* dst, int x, int y) {
@@ -246,10 +198,6 @@ int main (int argc, char** argv)
   E_prev = alloc2D(m+2,n+2);
   R = alloc2D(m+2,n+2);
   
-  E = alloc2D(m,n);
-  E_prev = alloc2D(m,n);
-  R = alloc2D(m,n);
-  
   int i,j;
   // Initialization
   for (j=1; j<=m; j++)
@@ -297,27 +245,36 @@ int main (int argc, char** argv)
   int x_pos = rank % px;
   int y_pos = rank / px;
 
-  removePadding(E, s_E, m, n);
-  removePadding(E_prev,s_E_prev, m, n);
-  removePadding(R,s_R, m, n);
-
   printf("\nx_size: %d, y_size: %d \n", x_size, y_size); 
   my_E = alloc2D(y_size + 2, x_size + 2);
   my_E_prev = alloc2D(y_size + 2, x_size + 2);
   my_R = alloc2D(y_size + 2, x_size + 2);
 
-  s_my_E = alloc2D(y_size, x_size);
-  s_my_E_prev = alloc2D(y_size, x_size);
-  s_my_R = alloc2D(y_size, x_size);
-
   /// send required data to processes
-  divideData(s_E, s_my_E[0], x_size, y_size, n, m);
-  divideData(s_E_prev, s_my_E_prev[0], x_size, y_size);
-  divideData(s_R, s_my_R[0], x_size, y_size);
-
-  //convert small data to my_E
-  //add padding
-
+  // divideData(E, my_E[1], x_size + 2, y_size);
+  // divideData(E_prev, my_E_prev[1], x_size + 2, y_size);
+  // divideData(R, my_R[1], x_size + 2, y_size);
+  
+// int i, j;
+//  for (j=0; j<=m; j++){
+//       for (i=0; i<=n; i++) {
+        
+//       if(E[j][i] != my_E[j][i] )
+//         printf("\n found 1: %d %d \n", i , j);
+      
+//       if(R[j][i] != my_R[j][i] )
+//         printf("\n found 1: %d %d \n", i , j);
+      
+//       if(E_prev[j][i] != my_E_prev[j][i] )
+//         printf("\n found 1: %d %d \n", i , j);
+//       }
+//     }
+  // printf("Rank %d R[200][200]: %f\n", rank, R[200][200]);
+  // printf("Rank %d R[201][1]: %f\n", rank, R[201][1]);
+  // printf("Rank %d my_R[1][1]: %f\n", rank, my_R[1][1]);
+  
+  
+  /// use scatter 
   double *up, *down, *left, *right;
   int upperRank = rank - 1;
   int bottomRank = rank + 1;
@@ -350,7 +307,7 @@ int main (int argc, char** argv)
       MPI_Isend(my_E_prev[1], x_size+2, MPI_DOUBLE, upperRank, UPPERTAG, MPI_COMM_WORLD, &reqs[requestCount++]); 
     
     // send bottom
-    if(rank != (P - 1))
+    if(rank != (P - 1)
       MPI_Isend(my_E_prev[y_size], x_size+2, MPI_DOUBLE, bottomRank, BOTTOMTAG, MPI_COMM_WORLD, &reqs[requestCount++]); 
     
     MPI_Waitall(requestCount, reqs, status);
@@ -358,12 +315,12 @@ int main (int argc, char** argv)
     t += dt;
     niter++;
 
-    simulate(my_E, my_E_prev, my_R, alpha, x_size,  y_size, kk, dt, a, epsilon, M1, M2, b, x_pos, y_pos, px, py); 
+    simulate(E, E_prev, R, alpha, x_size,  y_size, kk, dt, a, epsilon, M1, M2, b, x_pos, y_pos, px, py); 
     
     //swap current E with previous E
-    double **tmp = my_E; 
-    my_E = my_E_prev; 
-    my_E_prev = tmp;
+    double **tmp = E; 
+    E = E_prev; 
+    E_prev = tmp;
     
     /// take all the required data to plot 
     if (plot_freq){
@@ -374,7 +331,7 @@ int main (int argc, char** argv)
     }
   }//end of while loop
 
-  collectData(E_prev, my_E_prev[1], x_size + 2, y_size);
+  //collectData(E_prev, my_E_prev[1], x_size + 2, y_size);
   if(rank == 0) { // master
     double time_elapsed = getTime() - t0;
 

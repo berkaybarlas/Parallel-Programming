@@ -9,7 +9,7 @@
 
 
 #For MPI uncomment this line
-#MPI_flag    = 1
+MPI_flag    = 1
 
 RM		= rm -f
 LN		= ln -s

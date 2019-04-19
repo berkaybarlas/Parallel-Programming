@@ -33,11 +33,11 @@ void cmdLine(int argc, char *argv[], double& T, int& n, int& px, int& py, int& p
 	    // X processor geometry
             case 'x':
                 px = atoi(optarg);
-
+                break;
 	    // Y processor geometry
             case 'y':
                 py = atoi(optarg);
-
+                break;
 	    // Length of simulation, in simulated time units
             case 't':
                 T = atof(optarg);
