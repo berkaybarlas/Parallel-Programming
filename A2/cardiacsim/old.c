@@ -251,9 +251,9 @@ int main (int argc, char** argv)
   my_R = alloc2D(y_size + 2, x_size + 2);
 
   /// send required data to processes
-  // divideData(E, my_E[1], x_size + 2, y_size);
-  // divideData(E_prev, my_E_prev[1], x_size + 2, y_size);
-  // divideData(R, my_R[1], x_size + 2, y_size);
+   divideData(E, my_E[1], x_size + 2, y_size);
+   divideData(E_prev, my_E_prev[1], x_size + 2, y_size);
+   divideData(R, my_R[1], x_size + 2, y_size);
   
 // int i, j;
 //  for (j=0; j<=m; j++){
@@ -315,12 +315,12 @@ int main (int argc, char** argv)
     t += dt;
     niter++;
 
-    simulate(E, E_prev, R, alpha, x_size,  y_size, kk, dt, a, epsilon, M1, M2, b, x_pos, y_pos, px, py); 
+    simulate(my_E, my_E_prev, my_R, alpha, x_size,  y_size, kk, dt, a, epsilon, M1, M2, b, x_pos, y_pos, px, py); 
     
     //swap current E with previous E
-    double **tmp = E; 
-    E = E_prev; 
-    E_prev = tmp;
+    double **tmp = my_E; 
+    my_E = my_E_prev; 
+    my_E_prev = tmp;
     
     /// take all the required data to plot 
     if (plot_freq){
@@ -331,7 +331,7 @@ int main (int argc, char** argv)
     }
   }//end of while loop
 
-  //collectData(E_prev, my_E_prev[1], x_size + 2, y_size);
+  collectData(E_prev, my_E_prev[1], x_size + 2, y_size);
   if(rank == 0) { // master
     double time_elapsed = getTime() - t0;
 
