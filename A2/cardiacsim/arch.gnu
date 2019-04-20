@@ -45,8 +45,8 @@ CFLAGS		+= $(INCLUDES) $(ARCH_FLAGS) $(WARNINGS) $(OPTIMIZATION) \
 FFLAGS		= $(ARCH_FLAGS) -O2 -fno-second-underscore -ff90 -fugly-complex
 
 LDFLAGS		= $(WARNINGS) $(OPTIMIZATION) $(DEBUG)
-# *** LDFLAGS		= $(WARNINGS) $(OPTIMIZATION) $(DEBUG) -L/afs/nada.kth.se/home/5/u9034805/Public/lib/PPF 
-# *** LDLIBS		= -lptools_ppf
+# *** LDFLAGS		= -fopenmp -lm $(WARNINGS) $(OPTIMIZATION) $(DEBUG) -L/afs/nada.kth.se/home/5/u9034805/Public/lib/PPF 
+# *** LDLIBS		= -lptools_ppf 
 
 
 ARCH_HAS_X	= arch_has_X

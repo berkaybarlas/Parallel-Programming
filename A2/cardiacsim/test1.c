@@ -49,8 +49,9 @@ int main(int argc, char *argv[])
     for (j = 0; j < bigM; ++j) 
       y[i] += A[i][j] * x[j]; 
   
-
-
+/* collect partial results along rows */ 
+  for (i = 0; i < sqrtP; ++i) 
+    MPI_Reduce(&(y[M*i]), my_y, M, MPI_DOUBLE, MPI_SUM, i, rowcomm); 
 
   MPI_Finalize();
   return 0;

@@ -10,8 +10,7 @@ OBJECTS = cardiacsim.o splot.o cmdLine.o
 
 cardiacsim:	        $(OBJECTS) 
 		$(C++LINK) $(LDFLAGS) -o $@ $(OBJECTS)  $(LDLIBS)
-intel:	        $(OBJECTS) 
-		icc $(LDFLAGS) -o $@ $(OBJECTS)  $(LDLIBS)
+		$(C++LINK) $(LDFLAGS) -o $@ cardiacsim-mpi.o $(LDLIBS)
 
 test: test.o
 	$(C++LINK) $(LDFLAGS) -o $@ test.o  $(LDLIBS)

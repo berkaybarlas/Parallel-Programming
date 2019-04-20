@@ -62,9 +62,6 @@ double **alloc2D(int m,int n){
 	   l2norm += E[j][i]*E[j][i];
 	   if (E[j][i] > mx)
 	       mx = E[j][i];
-      if (E[j][i] == 1) {
-       // printf("\n found 1: %d %d \n", i , j);
-      }
       }
      *_mx = mx;
      l2norm /= (double) ((m)*(n));
@@ -80,9 +77,9 @@ void cmdLine(int argc, char *argv[], double& T, int& n, int& px, int& py, int& p
 
 void addPadding(double** src, double** target, int m, int n) {
   int i, j;
-for (j=1; j<=m; j++){
+  for (j=1; j<=m; j++){
       for (i=1; i<=n; i++) {
-	target[j][i] = src[j-1][i-1];
+	      target[j][i] = src[j-1][i-1];
       }
     }
 }
@@ -109,19 +106,17 @@ void simulate (double** E,  double** E_prev,double** R,
      * Using mirror boundaries
      */
     
-   if(x_pos == 0)
+  if(x_pos == 0)
     for (j=1; j<=m; j++) 
       E_prev[j][0] = E_prev[j][2];
-    if(x_pos == px-1)
+  if(x_pos == px-1)
     for (j=1; j<=m; j++) 
       E_prev[j][n+1] = E_prev[j][n-1];
  
-    if(y_pos == 0) 
-    {
+  if(y_pos == 0) 
     for (i=1; i<=n; i++) 
       E_prev[0][i] = E_prev[2][i];
-    }
-    if(y_pos == py-1)
+  if(y_pos == py-1)
     for (i=1; i<=n; i++) 
       E_prev[m+1][i] = E_prev[m-1][i];
     
@@ -184,10 +179,9 @@ MPI_Type_commit(&box);
       int disp = 0;
       for (int i=0; i<py; i++) {
           for (int j=0; j<px; j++) {
-              disp = j + y * i * px;
+            disp = j + y * i * px;
               displs[i*px+j] = disp;
-              //printf("rank: %d, disp: %d\n",rank,disp);
-              //disp += 1;
+            //  disp += 1;
           }
           //disp += px * (y - 1);
       }
@@ -205,7 +199,7 @@ if(collect == 1) // collect
   MPI_Gatherv(s_dst[0], x*y, MPI_DOUBLE, 
                 s_src[0], sendcounts, displs, box, 0, MPI_COMM_WORLD);
   if(rank == 0)
-  addPadding(s_src, src , m ,n);              
+    addPadding(s_src, src , m ,n);              
 }
 }
 
@@ -256,7 +250,7 @@ int main (int argc, char** argv)
   cmdLine( argc, argv, T, n,px, py, plot_freq, no_comm, num_threads);
   m = n;  
 
-  //if (rank == 0 ) // to uncomment this add master if statement to divide and collect
+  if (rank == 0 ) // to uncomment this add master if statement to divide and collect
   {
   // Allocate contiguous memory for solution arrays
   // The computational box is defined on [1:m+1,1:n+1]
@@ -313,25 +307,18 @@ int main (int argc, char** argv)
   int x_pos = rank % px;
   int y_pos = rank / px;
 
-
-
-  printf("\nx_size: %d, y_size: %d xpos:%d ypos:%d \n", x_size, y_size,x_pos,y_pos); 
+  //printf("\nx_size: %d, y_size: %d xpos:%d ypos:%d \n", x_size, y_size,x_pos,y_pos); 
   my_E = alloc2D(y_size + 2, x_size + 2);
   my_E_prev = alloc2D(y_size + 2, x_size + 2);
   my_R = alloc2D(y_size + 2, x_size + 2);
 
   /// send required data to processes
-  // E[3][3] = 3.2;
-  // E[3][203] = 3.2;
-  printf("xsize %d ysize %d, n %d m %d\n",x_size, y_size, n, m);
+
+  //printf("xsize %d ysize %d, n %d m %d\n",x_size, y_size, n, m);
   divideOrCollectData(0, E, my_E, x_size, y_size, n, m, rank);
   divideOrCollectData(0, E_prev, my_E_prev, x_size, y_size, n, m, rank);
   divideOrCollectData(0, R, my_R, x_size, y_size, n, m, rank);
   
-  // printf("my_E[3][3]: %f\n" , my_E[3][3]);
-  //convert small data to my_E
-  //add padding
-
   double *leftSend, *rightSend, *left, *right;
   int upperRank = rank - px;
   int bottomRank = rank + px;
@@ -351,7 +338,7 @@ int main (int argc, char** argv)
   MPI_Status status[8];
   while (t<T) {
     int requestCount  = 0;
-    /// send ghost cells to neighbor processes 
+    /// send and recieve ghost cells to and from neighbor processes 
     
     // recieve up 
     if(y_pos != 0){
@@ -407,8 +394,8 @@ int main (int argc, char** argv)
     t += dt;
     niter++;
 
-    simulate(my_E, my_E_prev, my_R, alpha, x_size,  y_size, kk, dt, a, epsilon, M1, M2, b, x_pos, y_pos, px, py); 
-    
+    simulate(my_E, my_E_prev, my_R, alpha, x_size,  y_size, kk, dt, a, epsilon, M1, M2, b, x_pos, y_pos, px, py);
+
     //swap current E with previous E
     double **tmp = my_E; 
     my_E = my_E_prev; 
@@ -418,12 +405,14 @@ int main (int argc, char** argv)
     if (plot_freq){
       int k = (int)(t/plot_freq);
       if ((t - k * plot_freq) < dt){
-	//splot(E,t,niter,m+2,n+2);
+        divideOrCollectData(1, E, my_E, x_size, y_size, m, n, rank);
+        if(rank == 0)
+	        splot(E,t,niter,m+2,n+2);
       }
     }
   }//end of while loop
 
-  divideOrCollectData(1, E_prev, my_E_prev, x_size, y_size, m, n, rank);
+  divideOrCollectData(1, E_prev, my_E_prev, x_size, y_size, m, n, rank); 
   if(rank == 0) { // master
     double time_elapsed = getTime() - t0;
 
