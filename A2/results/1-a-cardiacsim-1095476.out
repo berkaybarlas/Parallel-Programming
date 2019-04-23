@@ -1,0 +1,193 @@
+slurmstepd: error: task/cgroup: unable to add task[pid=102262] to memory cg '(null)'
+Loading openmpi module ...
+Loading GCC module ...
+
+======================================================================================
+======================================================================================
+
+Setting stack size to unlimited...
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 2062728
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) 229376000
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) unlimited
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 4096
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+Serial version ...
+Grid Size       : 400
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.22254
+Sustained Gflops Rate       : 7.10545
+Sustained Bandwidth (GB/sec): 8.12052
+
+Max: 0.991272 L2norm: 0.592597
+1 MPI
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 11.8844
+Sustained Gflops Rate       : 4.79026
+Sustained Bandwidth (GB/sec): 5.47459
+
+Max: 0.992891 L2norm: 0.288324
+2 MPI
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 1
+
+[ke08:102307] *** Process received signal ***
+[ke08:102307] Signal: Segmentation fault (11)
+[ke08:102307] Signal code: Address not mapped (1)
+[ke08:102307] Failing at address: 0xfffffffffffffffa
+[ke08:102307] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2afb082365e0]
+[ke08:102307] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2afb084c34dc]
+[ke08:102307] [ 2] ./cardiacsim[0x401c97]
+[ke08:102307] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2afb08464c05]
+[ke08:102307] [ 4] ./cardiacsim[0x40257f]
+[ke08:102307] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 6.80756
+Sustained Gflops Rate       : 8.36265
+Sustained Bandwidth (GB/sec): 9.55732
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 102307 on node ke08 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+4 MPI
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 3.3928
+Sustained Gflops Rate       : 16.7794
+Sustained Bandwidth (GB/sec): 19.1765
+
+Max: 0.992891 L2norm: 0.288324
+8 MPI
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 4
+
+[ke08:102391] *** Process received signal ***
+[ke08:102391] Signal: Segmentation fault (11)
+[ke08:102391] Signal code: Address not mapped (1)
+[ke08:102391] Failing at address: 0xfffffffffffffffa
+[ke08:102391] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b4f091905e0]
+[ke08:102391] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b4f0941d4dc]
+[ke08:102391] [ 2] ./cardiacsim[0x401c97]
+[ke08:102391] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b4f093bec05]
+[ke08:102391] [ 4] ./cardiacsim[0x40257f]
+[ke08:102391] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.74474
+Sustained Gflops Rate       : 32.6291
+Sustained Bandwidth (GB/sec): 37.2904
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 102391 on node ke08 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+16 MPI
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 4
+
+[ke08:102494] *** Process received signal ***
+[ke08:102496] *** Process received signal ***
+[ke08:102496] Signal: Segmentation fault (11)
+[ke08:102496] Signal code: Address not mapped (1)
+[ke08:102496] Failing at address: 0xfffffffffffffffa
+[ke08:102496] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ad0c4ac85e0]
+[ke08:102496] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ad0c4d554dc]
+[ke08:102496] [ 2] ./cardiacsim[0x401c97]
+[ke08:102496] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ad0c4cf6c05]
+[ke08:102496] [ 4] ./cardiacsim[0x40257f]
+[ke08:102496] *** End of error message ***
+[ke08:102494] Signal: Segmentation fault (11)
+[ke08:102494] Signal code: Address not mapped (1)
+[ke08:102494] Failing at address: 0xfffffffffffffffa
+[ke08:102494] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ba38e7f05e0]
+[ke08:102494] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ba38ea7d4dc]
+[ke08:102494] [ 2] ./cardiacsim[0x401c97]
+[ke08:102494] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ba38ea1ec05]
+[ke08:102494] [ 4] ./cardiacsim[0x40257f]
+[ke08:102494] *** End of error message ***
+[ke08:102498] *** Process received signal ***
+[ke08:102498] Signal: Segmentation fault (11)
+[ke08:102498] Signal code: Address not mapped (1)
+[ke08:102498] Failing at address: 0xfffffffffffffffa
+[ke08:102498] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ba0750ef5e0]
+[ke08:102498] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ba07537c4dc]
+[ke08:102498] [ 2] ./cardiacsim[0x401c97]
+[ke08:102498] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ba07531dc05]
+[ke08:102498] [ 4] ./cardiacsim[0x40257f]
+[ke08:102498] *** End of error message ***
+[ke08:102500] *** Process received signal ***
+[ke08:102500] Signal: Segmentation fault (11)
+[ke08:102500] Signal code: Address not mapped (1)
+[ke08:102500] Failing at address: 0xfffffffffffffffa
+[ke08:102500] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b0b217c55e0]
+[ke08:102500] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b0b21a524dc]
+[ke08:102500] [ 2] ./cardiacsim[0x401c97]
+[ke08:102500] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b0b219f3c05]
+[ke08:102500] [ 4] ./cardiacsim[0x40257f]
+[ke08:102500] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.23456
+Sustained Gflops Rate       : 46.1131
+Sustained Bandwidth (GB/sec): 52.7007
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 102494 on node ke08 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+32 MPI
+1 MPI + 16 OpenMP
+Grid Size       : 200
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 0.320904
+Sustained Gflops Rate       : 6.76738
+Sustained Bandwidth (GB/sec): 7.73415
+
+Max: 0.979788 L2norm: 0.501904
+2 MPI + 16 OpenMP
+Finished with execution!

@@ -1,0 +1,226 @@
+Loading openmpi module ...
+Loading GCC module ...
+
+======================================================================================
+======================================================================================
+
+Setting stack size to unlimited...
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 191388
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) 16384000
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) unlimited
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 4096
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+Serial version ...
+Grid Size       : 400
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.3343
+Sustained Gflops Rate       : 6.51033
+Sustained Bandwidth (GB/sec): 7.44038
+
+Max: 0.991272 L2norm: 0.592597
+Serial version ...
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 10.7393
+Sustained Gflops Rate       : 5.30102
+Sustained Bandwidth (GB/sec): 6.0583
+
+Max: 0.992891 L2norm: 0.288324
+1 MPI
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 11.3011
+Sustained Gflops Rate       : 5.03751
+Sustained Bandwidth (GB/sec): 5.75715
+
+Max: 0.992891 L2norm: 0.288324
+2 MPI 2 1
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 6.70535
+Sustained Gflops Rate       : 8.49013
+Sustained Bandwidth (GB/sec): 9.70301
+
+Max: 0.992891 L2norm: 0.288324
+2 MPI 1 2
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 5.96356
+Sustained Gflops Rate       : 9.5462
+Sustained Bandwidth (GB/sec): 10.9099
+
+Max: 0.992891 L2norm: 0.288324
+4 MPI 2 2
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 3.56259
+Sustained Gflops Rate       : 15.9798
+Sustained Bandwidth (GB/sec): 18.2626
+
+Max: 0.992891 L2norm: 0.288324
+4 MPI 1 4
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 2.9444
+Sustained Gflops Rate       : 19.3348
+Sustained Bandwidth (GB/sec): 22.0969
+
+Max: 0.992891 L2norm: 0.288324
+4 MPI 4 1
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 4.32559
+Sustained Gflops Rate       : 13.1611
+Sustained Bandwidth (GB/sec): 15.0412
+
+Max: 0.992891 L2norm: 0.288324
+8 MPI 1 8
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 8
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 2.02924
+Sustained Gflops Rate       : 28.0544
+Sustained Bandwidth (GB/sec): 32.0622
+
+Max: 0.992891 L2norm: 0.288324
+8 MPI 8 1
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 8 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 4.13295
+Sustained Gflops Rate       : 13.7745
+Sustained Bandwidth (GB/sec): 15.7423
+
+Max: 0.992891 L2norm: 0.288324
+8 MPI 2 4
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 2.58926
+Sustained Gflops Rate       : 21.9867
+Sustained Bandwidth (GB/sec): 25.1277
+
+Max: 0.992891 L2norm: 0.288324
+8 MPI 4 2
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 4.14349
+Sustained Gflops Rate       : 13.7395
+Sustained Bandwidth (GB/sec): 15.7022
+
+Max: 0.992891 L2norm: 0.288324
+16 MPI 1 16
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 16
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 22.0347
+Sustained Gflops Rate       : 2.58362
+Sustained Bandwidth (GB/sec): 2.95271
+
+Max: 0.992891 L2norm: 0.288324
+16 MPI 16 1
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 16 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 21.8451
+Sustained Gflops Rate       : 2.60605
+Sustained Bandwidth (GB/sec): 2.97834
+
+Max: 0.992891 L2norm: 0.288324
+16 MPI 4 4
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 19.3747
+Sustained Gflops Rate       : 2.93834
+Sustained Bandwidth (GB/sec): 3.3581
+
+Max: 0.992891 L2norm: 0.288324
+16 MPI 8 2
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 8 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 26.6818
+Sustained Gflops Rate       : 2.13363
+Sustained Bandwidth (GB/sec): 2.43844
+
+Max: 0.992891 L2norm: 0.288324
+16 MPI 2 8
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+Finished with execution!

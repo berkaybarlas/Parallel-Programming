@@ -1,0 +1,531 @@
+Loading openmpi module ...
+Loading GCC module ...
+
+======================================================================================
+======================================================================================
+
+Setting stack size to unlimited...
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 191388
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) 16384000
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) unlimited
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 4096
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+Serial version ...
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 10.6402
+Sustained Gflops Rate       : 5.35039
+Sustained Bandwidth (GB/sec): 6.11473
+
+Max: 0.992891 L2norm: 0.288324
+16 MPI 1 16
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 16
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 51.5287
+Sustained Gflops Rate       : 1.10481
+Sustained Bandwidth (GB/sec): 1.26264
+
+Max: 0.992891 L2norm: 0.288324
+16 MPI 1 16 Comm disabled
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 16
+Communication   : DISABLED
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 0.453483
+Sustained Gflops Rate       : 125.538
+Sustained Bandwidth (GB/sec): 143.472
+
+Max: 1 L2norm: 0.707107
+16 MPI 16 1
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 16 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 53.5097
+Sustained Gflops Rate       : 1.06391
+Sustained Bandwidth (GB/sec): 1.21589
+
+Max: 0.992891 L2norm: 0.288324
+16 MPI 16 1 Comm disabled
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 16 x 1
+Communication   : DISABLED
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 0.802111
+Sustained Gflops Rate       : 70.9743
+Sustained Bandwidth (GB/sec): 81.1135
+
+Max: 1 L2norm: 0.707107
+16 MPI 4 4
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 21.0574
+Sustained Gflops Rate       : 2.70353
+Sustained Bandwidth (GB/sec): 3.08975
+
+Max: 0.992891 L2norm: 0.288324
+16 MPI 4 4 Comm disabled
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 4
+Communication   : DISABLED
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 0.655306
+Sustained Gflops Rate       : 86.8744
+Sustained Bandwidth (GB/sec): 99.285
+
+Max: 1 L2norm: 0.707107
+16 MPI 8 2
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 8 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 39.1801
+Sustained Gflops Rate       : 1.45301
+Sustained Bandwidth (GB/sec): 1.66059
+
+Max: 0.992891 L2norm: 0.288324
+16 MPI 8 2 Comm disabled
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 8 x 2
+Communication   : DISABLED
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 0.712633
+Sustained Gflops Rate       : 79.8858
+Sustained Bandwidth (GB/sec): 91.2981
+
+Max: 1 L2norm: 0.707107
+16 MPI 2 8
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 8
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 101.701
+Sustained Gflops Rate       : 0.559772
+Sustained Bandwidth (GB/sec): 0.63974
+
+Max: 0.992891 L2norm: 0.288324
+16 MPI 2 8 Comm disabled
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 8
+Communication   : DISABLED
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 0.905928
+Sustained Gflops Rate       : 62.8409
+Sustained Bandwidth (GB/sec): 71.8181
+
+Max: 1 L2norm: 0.707107
+======================================================================================
+ shrink 
+======================================================================================
+16 MPI 1 16
+Grid Size       : 731
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 16
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 42.5993
+Sustained Gflops Rate       : 0.681032
+Sustained Bandwidth (GB/sec): 0.778323
+
+Max: 0.992891 L2norm: 0.373049
+16 MPI 1 16 Comm disabled
+Grid Size       : 731
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 16
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 44.1253
+Sustained Gflops Rate       : 0.65748
+Sustained Bandwidth (GB/sec): 0.751406
+
+Max: 0.992891 L2norm: 0.373049
+16 MPI 16 1
+Grid Size       : 731
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 16 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 41.307
+Sustained Gflops Rate       : 0.702339
+Sustained Bandwidth (GB/sec): 0.802674
+
+Max: 0.992891 L2norm: 0.373049
+16 MPI 16 1 Comm disabled
+Grid Size       : 731
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 16 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 50.4495
+Sustained Gflops Rate       : 0.575061
+Sustained Bandwidth (GB/sec): 0.657212
+
+Max: 0.992891 L2norm: 0.373049
+16 MPI 4 4
+Grid Size       : 731
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 25.6333
+Sustained Gflops Rate       : 1.13179
+Sustained Bandwidth (GB/sec): 1.29347
+
+Max: 0.995289 L2norm: 0.508816
+16 MPI 4 4 Comm disabled
+Grid Size       : 731
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 21.2145
+Sustained Gflops Rate       : 1.36754
+Sustained Bandwidth (GB/sec): 1.5629
+
+Max: 0.995289 L2norm: 0.508816
+16 MPI 8 2
+Grid Size       : 731
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 8 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 21.8091
+Sustained Gflops Rate       : 1.33025
+Sustained Bandwidth (GB/sec): 1.52029
+
+Max: 0.994604 L2norm: 0.423619
+16 MPI 8 2 Comm disabled
+Grid Size       : 731
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 8 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 25.7341
+Sustained Gflops Rate       : 1.12736
+Sustained Bandwidth (GB/sec): 1.28841
+
+Max: 0.994604 L2norm: 0.423619
+16 MPI 2 8
+Grid Size       : 731
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 8
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 26.1803
+Sustained Gflops Rate       : 1.10814
+Sustained Bandwidth (GB/sec): 1.26645
+
+Max: 0.991687 L2norm: 0.441345
+16 MPI 2 8 Comm disabled
+Grid Size       : 731
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 8
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 28.1193
+Sustained Gflops Rate       : 1.03173
+Sustained Bandwidth (GB/sec): 1.17912
+
+Max: 0.991687 L2norm: 0.441345
+======================================================================================
+ shrink 
+======================================================================================
+16 MPI 1 16
+Grid Size       : 512
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 16
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 41.2199
+Sustained Gflops Rate       : 0.345278
+Sustained Bandwidth (GB/sec): 0.394604
+
+Max: 0.992891 L2norm: 0.497453
+16 MPI 1 16 Comm disabled
+Grid Size       : 512
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 16
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 31.1206
+Sustained Gflops Rate       : 0.457328
+Sustained Bandwidth (GB/sec): 0.522661
+
+Max: 0.992891 L2norm: 0.497453
+16 MPI 16 1
+Grid Size       : 512
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 16 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 30.915
+Sustained Gflops Rate       : 0.460369
+Sustained Bandwidth (GB/sec): 0.526136
+
+Max: 0.992891 L2norm: 0.497453
+16 MPI 16 1 Comm disabled
+Grid Size       : 512
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 16 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 34.3513
+Sustained Gflops Rate       : 0.414317
+Sustained Bandwidth (GB/sec): 0.473505
+
+Max: 0.992891 L2norm: 0.497453
+16 MPI 4 4
+Grid Size       : 512
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 26.8892
+Sustained Gflops Rate       : 0.529296
+Sustained Bandwidth (GB/sec): 0.604909
+
+Max: 0.992891 L2norm: 0.497453
+16 MPI 4 4 Comm disabled
+Grid Size       : 512
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 25.6644
+Sustained Gflops Rate       : 0.554555
+Sustained Bandwidth (GB/sec): 0.633777
+
+Max: 0.992891 L2norm: 0.497453
+16 MPI 8 2
+Grid Size       : 512
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 8 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 20.9496
+Sustained Gflops Rate       : 0.67936
+Sustained Bandwidth (GB/sec): 0.776411
+
+Max: 0.992891 L2norm: 0.497453
+16 MPI 8 2 Comm disabled
+Grid Size       : 512
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 8 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 19.2643
+Sustained Gflops Rate       : 0.738791
+Sustained Bandwidth (GB/sec): 0.844333
+
+Max: 0.992891 L2norm: 0.497453
+16 MPI 2 8
+Grid Size       : 512
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 8
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 25.1892
+Sustained Gflops Rate       : 0.565016
+Sustained Bandwidth (GB/sec): 0.645733
+
+Max: 0.992891 L2norm: 0.497453
+16 MPI 2 8 Comm disabled
+Grid Size       : 512
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 8
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 26.5228
+Sustained Gflops Rate       : 0.536606
+Sustained Bandwidth (GB/sec): 0.613264
+
+Max: 0.992891 L2norm: 0.497453
+======================================================================================
+ shrink 
+======================================================================================
+16 MPI 1 16
+Grid Size       : 365
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 16
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 17.8527
+Sustained Gflops Rate       : 0.405153
+Sustained Bandwidth (GB/sec): 0.463032
+
+Max: 0.990971 L2norm: 0.600478
+16 MPI 1 16 Comm disabled
+Grid Size       : 365
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 16
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 17.4764
+Sustained Gflops Rate       : 0.413875
+Sustained Bandwidth (GB/sec): 0.473
+
+Max: 0.990971 L2norm: 0.600478
+16 MPI 16 1
+Grid Size       : 365
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 16 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 17.8541
+Sustained Gflops Rate       : 0.405121
+Sustained Bandwidth (GB/sec): 0.462995
+
+Max: 0.991387 L2norm: 0.611795
+16 MPI 16 1 Comm disabled
+Grid Size       : 365
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 16 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 18.9346
+Sustained Gflops Rate       : 0.382003
+Sustained Bandwidth (GB/sec): 0.436575
+
+Max: 0.991387 L2norm: 0.611795
+16 MPI 4 4
+Grid Size       : 365
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 26.6805
+Sustained Gflops Rate       : 0.271099
+Sustained Bandwidth (GB/sec): 0.309828
+
+Max: 0.980192 L2norm: 0.374499
+16 MPI 4 4 Comm disabled
+Grid Size       : 365
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 25.7946
+Sustained Gflops Rate       : 0.280409
+Sustained Bandwidth (GB/sec): 0.320468
+
+Max: 0.980192 L2norm: 0.374499
+16 MPI 8 2
+Grid Size       : 365
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 8 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 18.3917
+Sustained Gflops Rate       : 0.393279
+Sustained Bandwidth (GB/sec): 0.449461
+
+Max: 0.989918 L2norm: 0.599495
+16 MPI 8 2 Comm disabled
+Grid Size       : 365
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 8 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 22.0173
+Sustained Gflops Rate       : 0.328516
+Sustained Bandwidth (GB/sec): 0.375447
+
+Max: 0.989918 L2norm: 0.599495
+16 MPI 2 8
+Grid Size       : 365
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 8
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 25.2303
+Sustained Gflops Rate       : 0.286681
+Sustained Bandwidth (GB/sec): 0.327636
+
+Max: 0.981802 L2norm: 0.414752
+16 MPI 2 8 Comm disabled
+Grid Size       : 365
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 8
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 25.5864
+Sustained Gflops Rate       : 0.282691
+Sustained Bandwidth (GB/sec): 0.323076
+
+Max: 0.981802 L2norm: 0.414752
+Finished with execution!

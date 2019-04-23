@@ -34,6 +34,7 @@ ARCH_FLAGS      = -DLINUX
 WARNINGS        = 
 # OPTIMIZATION    =  -O3 -ftree-vectorize 
 OPTIMIZATION    =  -O3 
+OPENMP 			= -fopenmp
 #DEBUG          = -g
 
 C++FLAGS        += $(INCLUDES) $(ARCH_FLAGS) $(WARNINGS) $(OPTIMIZATION) \
@@ -45,7 +46,7 @@ CFLAGS		+= $(INCLUDES) $(ARCH_FLAGS) $(WARNINGS) $(OPTIMIZATION) \
 FFLAGS		= $(ARCH_FLAGS) -O2 -fno-second-underscore -ff90 -fugly-complex
 
 LDFLAGS		= $(WARNINGS) $(OPTIMIZATION) $(DEBUG)
-# *** LDFLAGS		= -fopenmp -lm $(WARNINGS) $(OPTIMIZATION) $(DEBUG) -L/afs/nada.kth.se/home/5/u9034805/Public/lib/PPF 
+# *** LDFLAGS		= -lm $(WARNINGS) $(OPTIMIZATION) $(DEBUG) -L/afs/nada.kth.se/home/5/u9034805/Public/lib/PPF 
 # *** LDLIBS		= -lptools_ppf 
 
 

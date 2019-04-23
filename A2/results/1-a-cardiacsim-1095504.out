@@ -1,0 +1,524 @@
+Loading openmpi module ...
+Loading GCC module ...
+
+======================================================================================
+======================================================================================
+
+Setting stack size to unlimited...
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 1030562
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) 229376000
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) unlimited
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 4096
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+Serial version ...
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 400
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.17977
+Sustained Gflops Rate       : 7.36303
+Sustained Bandwidth (GB/sec): 8.41489
+
+Max: 0.991272 L2norm: 0.592597
+Serial version ...
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 8.53394
+Sustained Gflops Rate       : 6.67092
+Sustained Bandwidth (GB/sec): 7.62391
+
+Max: 0.992891 L2norm: 0.288324
+1 MPI
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 8.79803
+Sustained Gflops Rate       : 6.47068
+Sustained Bandwidth (GB/sec): 7.39507
+
+Max: 0.992891 L2norm: 0.288324
+2 MPI
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 1
+
+[buyukliman.kuacc.ku.edu.tr:61208] 1 more process has sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:61208] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[buyukliman:61214] *** Process received signal ***
+[buyukliman:61214] Signal: Segmentation fault (11)
+[buyukliman:61214] Signal code: Address not mapped (1)
+[buyukliman:61214] Failing at address: 0xfffffffffffffffa
+[buyukliman:61214] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b300fa5c5e0]
+[buyukliman:61214] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b300fce94dc]
+[buyukliman:61214] [ 2] ./cardiacsim[0x401c97]
+[buyukliman:61214] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b300fc8ac05]
+[buyukliman:61214] [ 4] ./cardiacsim[0x40257f]
+[buyukliman:61214] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 5.26483
+Sustained Gflops Rate       : 10.8131
+Sustained Bandwidth (GB/sec): 12.3579
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 61214 on node buyukliman exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+4 MPI
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 2
+
+[buyukliman:61247] *** Process received signal ***
+[buyukliman:61247] Signal: Segmentation fault (11)
+[buyukliman:61247] Signal code: Address not mapped (1)
+[buyukliman:61247] Failing at address: 0xfffffffffffffffa
+[buyukliman:61247] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ad4637a65e0]
+[buyukliman:61247] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ad463a334dc]
+[buyukliman:61247] [ 2] ./cardiacsim[0x401c97]
+[buyukliman:61247] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ad4639d4c05]
+[buyukliman:61247] [ 4] ./cardiacsim[0x40257f]
+[buyukliman:61247] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 3.3705
+Sustained Gflops Rate       : 16.8905
+Sustained Bandwidth (GB/sec): 19.3034
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 61247 on node buyukliman exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+[buyukliman.kuacc.ku.edu.tr:61240] 3 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:61240] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+4 MPI 1 4
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 2.79477
+Sustained Gflops Rate       : 20.37
+Sustained Bandwidth (GB/sec): 23.28
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:61295] 3 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:61295] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+4 MPI 4 1
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+[buyukliman:61353] *** Process received signal ***
+[buyukliman:61353] Signal: Segmentation fault (11)
+[buyukliman:61353] Signal code: Address not mapped (1)
+[buyukliman:61353] Failing at address: 0x2b428b092000
+[buyukliman:61353] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b426e68b5e0]
+[buyukliman:61353] [ 1] /usr/lib64/libc.so.6(+0x14c8d6)[0x2b426e9e48d6]
+[buyukliman:61353] [ 2] /kuacc/apps/openmpi/3.0.0/lib/libopen-pal.so.40(opal_pack_homogeneous_contig_with_gaps+0x144)[0x2b426f004284]
+[buyukliman:61353] [ 3] /kuacc/apps/openmpi/3.0.0/lib/libopen-pal.so.40(mca_btl_smcuda_prepare_src+0x12e)[0x2b426f053d8e]
+[buyukliman:61353] [ 4] /kuacc/apps/openmpi/3.0.0/lib/libmpi.so.40(mca_pml_ob1_send_request_schedule_once+0x1eb)[0x2b426db357ab]
+[buyukliman:61353] [ 5] /kuacc/apps/openmpi/3.0.0/lib/libmpi.so.40(+0x1a8a68)[0x2b426db38a68]
+[buyukliman:61353] [ 6] /kuacc/apps/openmpi/3.0.0/lib/libopen-pal.so.40(mca_btl_smcuda_component_progress+0x21f)[0x2b426f055d8f]
+[buyukliman:61353] [ 7] /kuacc/apps/openmpi/3.0.0/lib/libopen-pal.so.40(opal_progress+0x3c)[0x2b426efe97dc]
+[buyukliman:61353] [ 8] /kuacc/apps/openmpi/3.0.0/lib/libmpi.so.40(mca_pml_ob1_send+0x725)[0x2b426db28495]
+[buyukliman:61353] [ 9] /kuacc/apps/openmpi/3.0.0/lib/libmpi.so.40(mca_coll_basic_scatterv_intra+0x199)[0x2b426da892a9]
+[buyukliman:61353] [10] /kuacc/apps/openmpi/3.0.0/lib/libmpi.so.40(PMPI_Scatterv+0x127)[0x2b426da32f47]
+[buyukliman:61353] [11] ./cardiacsim[0x4043dd]
+[buyukliman:61353] [12] ./cardiacsim[0x401684]
+[buyukliman:61353] [13] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b426e8b9c05]
+[buyukliman:61353] [14] ./cardiacsim[0x40257f]
+[buyukliman:61353] *** End of error message ***
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 61353 on node buyukliman exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+[buyukliman.kuacc.ku.edu.tr:61348] 3 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:61348] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+8 MPI
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 4
+
+[buyukliman:61408] *** Process received signal ***
+[buyukliman:61408] Signal: Segmentation fault (11)
+[buyukliman:61408] Signal code: Address not mapped (1)
+[buyukliman:61408] Failing at address: 0xfffffffffffffffa
+[buyukliman:61408] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b6188c455e0]
+[buyukliman:61408] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b6188ed24dc]
+[buyukliman:61408] [ 2] ./cardiacsim[0x401c97]
+[buyukliman:61408] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b6188e73c05]
+[buyukliman:61408] [ 4] ./cardiacsim[0x40257f]
+[buyukliman:61408] *** End of error message ***
+[buyukliman:61414] *** Process received signal ***
+[buyukliman:61414] Signal: Segmentation fault (11)
+[buyukliman:61414] Signal code: Address not mapped (1)
+[buyukliman:61414] Failing at address: 0xfffffffffffffffa
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.87109
+Sustained Gflops Rate       : 30.4257
+Sustained Bandwidth (GB/sec): 34.7722
+
+[buyukliman:61414] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b089779e5e0]
+[buyukliman:61414] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b0897a2b4dc]
+[buyukliman:61414] [ 2] ./cardiacsim[0x401c97]
+[buyukliman:61414] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b08979ccc05]
+[buyukliman:61414] [ 4] ./cardiacsim[0x40257f]
+[buyukliman:61414] *** End of error message ***
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 61408 on node buyukliman exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+[buyukliman.kuacc.ku.edu.tr:61402] 7 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:61402] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+2 total processes killed (some possibly by mpirun during cleanup)
+16 MPI 4 4
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 4
+
+[buyukliman.kuacc.ku.edu.tr:61507] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:61507] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[buyukliman:61513] *** Process received signal ***
+[buyukliman:61513] Signal: Segmentation fault (11)
+[buyukliman:61513] Signal code: Address not mapped (1)
+[buyukliman:61513] Failing at address: 0xfffffffffffffffa
+[buyukliman:61513] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ac3404525e0]
+[buyukliman:61513] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ac3406df4dc]
+[buyukliman:61513] [ 2] ./cardiacsim[0x401c97]
+[buyukliman:61513] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ac340680c05]
+[buyukliman:61513] [ 4] ./cardiacsim[0x40257f]
+[buyukliman:61513] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 14.8696
+Sustained Gflops Rate       : 3.82858
+Sustained Bandwidth (GB/sec): 4.37551
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 61513 on node buyukliman exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+16 MPI 8 2
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 8 x 2
+
+[buyukliman.kuacc.ku.edu.tr:61709] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:61709] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[buyukliman:61716] *** Process received signal ***
+[buyukliman:61716] Signal: Segmentation fault (11)
+[buyukliman:61716] Signal code: Address not mapped (1)
+[buyukliman:61716] Failing at address: 0xfffffffffffffffa
+[buyukliman:61716] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b95242405e0]
+[buyukliman:61716] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b95244cd4dc]
+[buyukliman:61716] [ 2] ./cardiacsim[0x401c97]
+[buyukliman:61716] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b952446ec05]
+[buyukliman:61716] [ 4] ./cardiacsim[0x40257f]
+[buyukliman:61716] *** End of error message ***
+[buyukliman:61718] *** Process received signal ***
+[buyukliman:61718] Signal: Segmentation fault (11)
+[buyukliman:61718] Signal code: Address not mapped (1)
+[buyukliman:61718] Failing at address: 0xfffffffffffffffa
+[buyukliman:61718] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b7e9fa375e0]
+[buyukliman:61718] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b7e9fcc44dc]
+[buyukliman:61718] [ 2] ./cardiacsim[0x401c97]
+[buyukliman:61718] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b7e9fc65c05]
+[buyukliman:61718] [ 4] ./cardiacsim[0x40257f]
+[buyukliman:61718] *** End of error message ***
+[buyukliman:61720] *** Process received signal ***
+[buyukliman:61720] Signal: Segmentation fault (11)
+[buyukliman:61720] Signal code: Address not mapped (1)
+[buyukliman:61720] Failing at address: 0xfffffffffffffffa
+[buyukliman:61720] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b1e5408b5e0]
+[buyukliman:61720] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b1e543184dc]
+[buyukliman:61720] [ 2] ./cardiacsim[0x401c97]
+[buyukliman:61720] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b1e542b9c05]
+[buyukliman:61720] [ 4] ./cardiacsim[0x40257f]
+[buyukliman:61720] *** End of error message ***
+[buyukliman:61721] *** Process received signal ***
+[buyukliman:61721] Signal: Segmentation fault (11)
+[buyukliman:61721] Signal code: Address not mapped (1)
+[buyukliman:61721] Failing at address: 0xfffffffffffffffa
+[buyukliman:61721] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ae6363295e0]
+[buyukliman:61721] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ae6365b64dc]
+[buyukliman:61721] [ 2] ./cardiacsim[0x401c97]
+[buyukliman:61721] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ae636557c05]
+[buyukliman:61721] [ 4] ./cardiacsim[0x40257f]
+[buyukliman:61721] *** End of error message ***
+[buyukliman:61723] *** Process received signal ***
+[buyukliman:61723] Signal: Segmentation fault (11)
+[buyukliman:61723] Signal code: Address not mapped (1)
+[buyukliman:61723] Failing at address: 0xfffffffffffffffa
+[buyukliman:61723] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ae4988265e0]
+[buyukliman:61723] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ae498ab34dc]
+[buyukliman:61723] [ 2] ./cardiacsim[0x401c97]
+[buyukliman:61723] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ae498a54c05]
+[buyukliman:61723] [ 4] ./cardiacsim[0x40257f]
+[buyukliman:61723] *** End of error message ***
+[buyukliman:61725] *** Process received signal ***
+[buyukliman:61725] Signal: Segmentation fault (11)
+[buyukliman:61725] Signal code: Address not mapped (1)
+[buyukliman:61725] Failing at address: 0xfffffffffffffffa
+[buyukliman:61725] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b9c2763c5e0]
+[buyukliman:61725] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b9c278c94dc]
+[buyukliman:61725] [ 2] ./cardiacsim[0x401c97]
+[buyukliman:61725] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b9c2786ac05]
+[buyukliman:61725] [ 4] ./cardiacsim[0x40257f]
+[buyukliman:61725] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 11.94
+Sustained Gflops Rate       : 4.76797
+Sustained Bandwidth (GB/sec): 5.4491
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 9 with PID 61723 on node buyukliman exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+16 MPI 2 8
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 8
+
+[buyukliman.kuacc.ku.edu.tr:61910] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:61910] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 17.1986
+Sustained Gflops Rate       : 3.31012
+Sustained Bandwidth (GB/sec): 3.78299
+
+Max: 0.992891 L2norm: 0.288324
+16 MPI 2 8
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 16
+
+[buyukliman.kuacc.ku.edu.tr:62109] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:62109] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 16.3901
+Sustained Gflops Rate       : 3.4734
+Sustained Bandwidth (GB/sec): 3.9696
+
+Max: 0.992891 L2norm: 0.288324
+32 MPI
+1 MPI + 16 OpenMP
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 8.86897
+Sustained Gflops Rate       : 6.41893
+Sustained Bandwidth (GB/sec): 7.33592
+
+Max: 0.992891 L2norm: 0.288324
+2 MPI + 16 OpenMP
+Finished with execution!

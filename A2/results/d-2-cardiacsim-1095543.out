@@ -1,0 +1,343 @@
+Loading openmpi module ...
+Loading GCC module ...
+
+======================================================================================
+======================================================================================
+
+Setting stack size to unlimited...
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 1029926
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) 229376000
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) unlimited
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 4096
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+Serial version ...
+Grid Size       : 400
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.61322
+Sustained Gflops Rate       : 5.38472
+Sustained Bandwidth (GB/sec): 6.15396
+
+Max: 0.991272 L2norm: 0.592597
+Serial version ...
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 12.5746
+Sustained Gflops Rate       : 4.52733
+Sustained Bandwidth (GB/sec): 5.17409
+
+Max: 0.992891 L2norm: 0.288324
+1 MPI + 2 OpenMP
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 12.5066
+Sustained Gflops Rate       : 4.55193
+Sustained Bandwidth (GB/sec): 5.20221
+
+Max: 0.992891 L2norm: 0.288324
+2 MPI + 2 OpenMP
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 2
+
+[me01:19405] *** Process received signal ***
+[me01:19405] Signal: Segmentation fault (11)
+[me01:19405] Signal code: Address not mapped (1)
+[me01:19405] Failing at address: 0xfffffffffffffffa
+[me01:19405] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2af32f72a5e0]
+[me01:19405] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2af32f9b74dc]
+[me01:19405] [ 2] ./cardiacsim-openmp[0x401ca7]
+[me01:19405] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2af32f958c05]
+[me01:19405] [ 4] ./cardiacsim-openmp[0x40258f]
+[me01:19405] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 6.57666
+Sustained Gflops Rate       : 8.65626
+Sustained Bandwidth (GB/sec): 9.89287
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 0 on node me01 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+4 MPI + 2 OpenMP
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 3.34248
+Sustained Gflops Rate       : 17.032
+Sustained Bandwidth (GB/sec): 19.4652
+
+Max: 0.992891 L2norm: 0.288324
+8 MPI + 2 OpenMP
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 8
+
+[me01:19511] *** Process received signal ***
+[me01:19511] Signal: Segmentation fault (11)
+[me01:19511] Signal code: Address not mapped (1)
+[me01:19511] Failing at address: 0xfffffffffffffffa
+[me01:19513] *** Process received signal ***
+[me01:19513] Signal: Segmentation fault (11)
+[me01:19513] Signal code: Address not mapped (1)
+[me01:19513] Failing at address: 0xfffffffffffffffa
+[me01:19513] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b15b91815e0]
+[me01:19513] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b15b940e4dc]
+[me01:19513] [ 2] ./cardiacsim-openmp[0x401ca7]
+[me01:19513] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b15b93afc05]
+[me01:19513] [ 4] ./cardiacsim-openmp[0x40258f]
+[me01:19513] *** End of error message ***
+[me01:19511] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b18125d65e0]
+[me01:19511] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b18128634dc]
+[me01:19511] [ 2] ./cardiacsim-openmp[0x401ca7]
+[me01:19511] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b1812804c05]
+[me01:19511] [ 4] ./cardiacsim-openmp[0x40258f]
+[me01:19511] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 8.883
+Sustained Gflops Rate       : 6.40879
+Sustained Bandwidth (GB/sec): 7.32433
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 7 with PID 0 on node me01 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+16 MPI + 2 OpenMP
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 16
+
+[me01:19616] *** Process received signal ***
+[me01:19616] Signal: Segmentation fault (11)
+[me01:19616] Signal code: Address not mapped (1)
+[me01:19616] Failing at address: 0xfffffffffffffffa
+[me01:19616] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ad912d875e0]
+[me01:19616] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ad9130144dc]
+[me01:19616] [ 2] ./cardiacsim-openmp[0x401ca7]
+[me01:19616] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ad912fb5c05]
+[me01:19616] [ 4] ./cardiacsim-openmp[0x40258f]
+[me01:19616] *** End of error message ***
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+[me01:19617] *** Process received signal ***
+[me01:19617] Signal: Segmentation fault (11)
+[me01:19617] Signal code: Address not mapped (1)
+[me01:19617] Failing at address: 0xfffffffffffffffa
+[me01:19617] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ba9998265e0]
+[me01:19617] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ba999ab34dc]
+[me01:19617] [ 2] ./cardiacsim-openmp[0x401ca7]
+[me01:19617] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ba999a54c05]
+[me01:19617] [ 4] ./cardiacsim-openmp[0x40258f]
+[me01:19617] *** End of error message ***
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 0 on node me01 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+1 MPI + 4 OpenMP
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 12.5024
+Sustained Gflops Rate       : 4.55346
+Sustained Bandwidth (GB/sec): 5.20395
+
+Max: 0.992891 L2norm: 0.288324
+2 MPI + 4 OpenMP
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 2
+
+[me01:19847] *** Process received signal ***
+[me01:19847] Signal: Segmentation fault (11)
+[me01:19847] Signal code: Address not mapped (1)
+[me01:19847] Failing at address: 0xfffffffffffffffa
+[me01:19847] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ad2a3ed95e0]
+[me01:19847] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ad2a41664dc]
+[me01:19847] [ 2] ./cardiacsim-openmp[0x401ca7]
+[me01:19847] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ad2a4107c05]
+[me01:19847] [ 4] ./cardiacsim-openmp[0x40258f]
+[me01:19847] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 6.57084
+Sustained Gflops Rate       : 8.66393
+Sustained Bandwidth (GB/sec): 9.90163
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 0 on node me01 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+4 MPI + 4 OpenMP
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 4
+
+[me01:19884] *** Process received signal ***
+[me01:19884] Signal: Segmentation fault (11)
+[me01:19884] Signal code: Address not mapped (1)
+[me01:19884] Failing at address: 0xfffffffffffffffa
+[me01:19884] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b36f37095e0]
+[me01:19884] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b36f39964dc]
+[me01:19884] [ 2] ./cardiacsim-openmp[0x401ca7]
+[me01:19884] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b36f3937c05]
+[me01:19884] [ 4] ./cardiacsim-openmp[0x40258f]
+[me01:19884] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 3.32435
+Sustained Gflops Rate       : 17.125
+Sustained Bandwidth (GB/sec): 19.5714
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 0 on node me01 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+8 MPI + 4 OpenMP
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 8
+
+[me01:19947] *** Process received signal ***
+[me01:19949] *** Process received signal ***
+[me01:19949] Signal: Segmentation fault (11)
+[me01:19949] Signal code: Address not mapped (1)
+[me01:19949] Failing at address: 0xfffffffffffffffa
+[me01:19949] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b1cf60a75e0]
+[me01:19949] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b1cf63344dc]
+[me01:19949] [ 2] ./cardiacsim-openmp[0x401ca7]
+[me01:19949] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b1cf62d5c05]
+[me01:19949] [ 4] ./cardiacsim-openmp[0x40258f]
+[me01:19949] *** End of error message ***
+[me01:19947] Signal: Segmentation fault (11)
+[me01:19947] Signal code: Address not mapped (1)
+[me01:19947] Failing at address: 0xfffffffffffffffa
+[me01:19947] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2acfc38545e0]
+[me01:19947] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2acfc3ae14dc]
+[me01:19947] [ 2] ./cardiacsim-openmp[0x401ca7]
+[me01:19947] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2acfc3a82c05]
+[me01:19947] [ 4] ./cardiacsim-openmp[0x40258f]
+[me01:19947] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 3.58164
+Sustained Gflops Rate       : 15.8948
+Sustained Bandwidth (GB/sec): 18.1654
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 3 with PID 0 on node me01 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+1 MPI + 8 OpenMP
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 12.5346
+Sustained Gflops Rate       : 4.54176
+Sustained Bandwidth (GB/sec): 5.19059
+
+Max: 0.992891 L2norm: 0.288324
+2 MPI + 8 OpenMP
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 6.58807
+Sustained Gflops Rate       : 8.64127
+Sustained Bandwidth (GB/sec): 9.87574
+
+Max: 0.992891 L2norm: 0.288324
+4 MPI + 8 OpenMP
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 3.33696
+Sustained Gflops Rate       : 17.0602
+Sustained Bandwidth (GB/sec): 19.4974
+
+Max: 0.992891 L2norm: 0.288324
+1 MPI + 16 OpenMP
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 12.4867
+Sustained Gflops Rate       : 4.55919
+Sustained Bandwidth (GB/sec): 5.2105
+
+Max: 0.992891 L2norm: 0.288324
+2 MPI + 16 OpenMP
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 6.5758
+Sustained Gflops Rate       : 8.65739
+Sustained Bandwidth (GB/sec): 9.89416
+
+Max: 0.992891 L2norm: 0.288324
+Finished with execution!

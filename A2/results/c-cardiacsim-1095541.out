@@ -1,0 +1,305 @@
+Loading openmpi module ...
+Loading GCC module ...
+
+======================================================================================
+======================================================================================
+
+Setting stack size to unlimited...
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 2063001
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) 229376000
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) unlimited
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 4096
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+Serial version ...
+Grid Size       : 400
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.8795
+Sustained Gflops Rate       : 4.62184
+Sustained Bandwidth (GB/sec): 5.2821
+
+Max: 0.991272 L2norm: 0.592597
+Serial version ...
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 11.388
+Sustained Gflops Rate       : 4.99904
+Sustained Bandwidth (GB/sec): 5.71319
+
+Max: 0.992891 L2norm: 0.288324
+16 MPI 4 4
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 4
+
+[dy03:25782] *** Process received signal ***
+[dy03:25782] Signal: Segmentation fault (11)
+[dy03:25782] Signal code: Address not mapped (1)
+[dy03:25782] Failing at address: 0xfffffffffffffffa
+[dy03:25782] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b18816125e0]
+[dy03:25782] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b188189f4dc]
+[dy03:25782] [ 2] ./cardiacsim[0x401c97]
+[dy03:25782] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b1881840c05]
+[dy03:25782] [ 4] ./cardiacsim[0x40257f]
+[dy03:25782] *** End of error message ***
+[dy03:25788] *** Process received signal ***
+[dy03:25788] Signal: Segmentation fault (11)
+[dy03:25788] Signal code: Address not mapped (1)
+[dy03:25788] Failing at address: 0xfffffffffffffffa
+[dy03:25791] *** Process received signal ***
+[dy03:25791] Signal: Segmentation fault (11)
+[dy03:25791] Signal code: Address not mapped (1)
+[dy03:25791] Failing at address: 0xfffffffffffffffa
+[dy03:25791] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ba49cfc25e0]
+[dy03:25791] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ba49d24f4dc]
+[dy03:25791] [ 2] ./cardiacsim[0x401c97]
+[dy03:25791] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ba49d1f0c05]
+[dy03:25791] [ 4] ./cardiacsim[0x40257f]
+[dy03:25791] *** End of error message ***
+[dy03:25794] *** Process received signal ***
+[dy03:25794] Signal: Segmentation fault (11)
+[dy03:25794] Signal code: Address not mapped (1)
+[dy03:25794] Failing at address: 0xfffffffffffffffa
+[dy03:25794] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ae7025bb5e0]
+[dy03:25794] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ae7028484dc]
+[dy03:25794] [ 2] ./cardiacsim[0x401c97]
+[dy03:25794] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ae7027e9c05]
+[dy03:25794] [ 4] ./cardiacsim[0x40257f]
+[dy03:25794] *** End of error message ***
+[dy03:25788] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ab45c9505e0]
+[dy03:25788] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ab45cbdd4dc]
+[dy03:25788] [ 2] ./cardiacsim[0x401c97]
+[dy03:25788] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ab45cb7ec05]
+[dy03:25788] [ 4] ./cardiacsim[0x40257f]
+[dy03:25788] *** End of error message ***
+[dy03:25795] *** Process received signal ***
+[dy03:25795] Signal: Segmentation fault (11)
+[dy03:25795] Signal code: Address not mapped (1)
+[dy03:25795] Failing at address: 0xfffffffffffffffa
+[dy03:25795] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2af9cfe5e5e0]
+[dy03:25795] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2af9d00eb4dc]
+[dy03:25795] [ 2] ./cardiacsim[0x401c97]
+[dy03:25795] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2af9d008cc05]
+[dy03:25795] [ 4] ./cardiacsim[0x40257f]
+[dy03:25795] *** End of error message ***
+[dy03:25797] *** Process received signal ***
+[dy03:25797] Signal: Segmentation fault (11)
+[dy03:25797] Signal code: Address not mapped (1)
+[dy03:25797] Failing at address: 0xfffffffffffffffa
+[dy03:25797] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ba2aa9e35e0]
+[dy03:25797] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ba2aac704dc]
+[dy03:25797] [ 2] ./cardiacsim[0x401c97]
+[dy03:25797] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ba2aac11c05]
+[dy03:25797] [ 4] ./cardiacsim[0x40257f]
+[dy03:25797] *** End of error message ***
+[dy03:25798] *** Process received signal ***
+[dy03:25798] Signal: Segmentation fault (11)
+[dy03:25798] Signal code: Address not mapped (1)
+[dy03:25798] Failing at address: 0xfffffffffffffffa
+[dy03:25798] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ba98c16e5e0]
+[dy03:25798] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ba98c3fb4dc]
+[dy03:25798] [ 2] ./cardiacsim[0x401c97]
+[dy03:25798] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ba98c39cc05]
+[dy03:25798] [ 4] ./cardiacsim[0x40257f]
+[dy03:25798] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.60358
+Sustained Gflops Rate       : 35.5014
+Sustained Bandwidth (GB/sec): 40.5731
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 2 with PID 25782 on node dy03 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+16 MPI 8 2
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 8 x 2
+
+[dy03:25982] *** Process received signal ***
+[dy03:25983] *** Process received signal ***
+[dy03:25983] Signal: Segmentation fault (11)
+[dy03:25983] Signal code: Address not mapped (1)
+[dy03:25983] Failing at address: 0xfffffffffffffffa
+[dy03:25983] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ba3d43165e0]
+[dy03:25983] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ba3d45a34dc]
+[dy03:25983] [ 2] ./cardiacsim[0x401c97]
+[dy03:25983] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ba3d4544c05]
+[dy03:25983] [ 4] ./cardiacsim[0x40257f]
+[dy03:25983] *** End of error message ***
+[dy03:25982] Signal: Segmentation fault (11)
+[dy03:25982] Signal code: Address not mapped (1)
+[dy03:25982] Failing at address: 0xfffffffffffffffa
+[dy03:25982] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b95afb225e0]
+[dy03:25982] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b95afdaf4dc]
+[dy03:25982] [ 2] ./cardiacsim[0x401c97]
+[dy03:25982] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b95afd50c05]
+[dy03:25982] [ 4] ./cardiacsim[0x40257f]
+[dy03:25982] *** End of error message ***
+[dy03:25990] *** Process received signal ***
+[dy03:25990] Signal: Segmentation fault (11)
+[dy03:25990] Signal code: Address not mapped (1)
+[dy03:25990] Failing at address: 0xfffffffffffffffa
+[dy03:25990] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b15700b35e0]
+[dy03:25990] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b15703404dc]
+[dy03:25990] [ 2] ./cardiacsim[0x401c97]
+[dy03:25990] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b15702e1c05]
+[dy03:25990] [ 4] ./cardiacsim[0x40257f]
+[dy03:25990] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 2.25531
+Sustained Gflops Rate       : 25.2423
+Sustained Bandwidth (GB/sec): 28.8484
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 25982 on node dy03 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+16 MPI 2 8
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 8
+
+[dy03:26182] *** Process received signal ***
+[dy03:26184] *** Process received signal ***
+[dy03:26184] Signal: Segmentation fault (11)
+[dy03:26184] Signal code: Address not mapped (1)
+[dy03:26184] Failing at address: 0xfffffffffffffffa
+[dy03:26184] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ac653d005e0]
+[dy03:26184] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ac653f8d4dc]
+[dy03:26184] [ 2] ./cardiacsim[0x401c97]
+[dy03:26184] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ac653f2ec05]
+[dy03:26184] [ 4] ./cardiacsim[0x40257f]
+[dy03:26184] *** End of error message ***
+[dy03:26185] *** Process received signal ***
+[dy03:26185] Signal: Segmentation fault (11)
+[dy03:26185] Signal code: Address not mapped (1)
+[dy03:26185] Failing at address: 0xfffffffffffffffa
+[dy03:26182] Signal: Segmentation fault (11)
+[dy03:26182] Signal code: Address not mapped (1)
+[dy03:26182] Failing at address: 0xfffffffffffffffa
+[dy03:26182] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b07c199b5e0]
+[dy03:26182] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b07c1c284dc]
+[dy03:26182] [ 2] ./cardiacsim[0x401c97]
+[dy03:26182] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b07c1bc9c05]
+[dy03:26182] [ 4] ./cardiacsim[0x40257f]
+[dy03:26182] *** End of error message ***
+[dy03:26185] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b702c4435e0]
+[dy03:26185] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b702c6d04dc]
+[dy03:26185] [ 2] ./cardiacsim[0x401c97]
+[dy03:26185] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b702c671c05]
+[dy03:26185] [ 4] ./cardiacsim[0x40257f]
+[dy03:26185] *** End of error message ***
+[dy03:26190] *** Process received signal ***
+[dy03:26190] Signal: Segmentation fault (11)
+[dy03:26190] Signal code: Address not mapped (1)
+[dy03:26190] Failing at address: 0xfffffffffffffffa
+[dy03:26190] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b69ac81d5e0]
+[dy03:26190] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b69acaaa4dc]
+[dy03:26190] [ 2] ./cardiacsim[0x401c97]
+[dy03:26190] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b69aca4bc05]
+[dy03:26190] [ 4] ./cardiacsim[0x40257f]
+[dy03:26190] *** End of error message ***
+[dy03:26192] *** Process received signal ***
+[dy03:26192] Signal: Segmentation fault (11)
+[dy03:26192] Signal code: Address not mapped (1)
+[dy03:26192] Failing at address: 0xfffffffffffffffa
+[dy03:26192] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b543b19f5e0]
+[dy03:26192] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b543b42c4dc]
+[dy03:26192] [ 2] ./cardiacsim[0x401c97]
+[dy03:26192] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b543b3cdc05]
+[dy03:26192] [ 4] ./cardiacsim[0x40257f]
+[dy03:26192] *** End of error message ***
+[dy03:26195] *** Process received signal ***
+[dy03:26195] Signal: Segmentation fault (11)
+[dy03:26195] Signal code: Address not mapped (1)
+[dy03:26195] Failing at address: 0xfffffffffffffffa
+[dy03:26195] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b08700aa5e0]
+[dy03:26195] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b08703374dc]
+[dy03:26195] [ 2] ./cardiacsim[0x401c97]
+[dy03:26195] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b08702d8c05]
+[dy03:26195] [ 4] ./cardiacsim[0x40257f]
+[dy03:26195] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.30406
+Sustained Gflops Rate       : 43.6553
+Sustained Bandwidth (GB/sec): 49.8918
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 3 with PID 26184 on node dy03 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+16 MPI 2 8
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 16
+
+[dy03:26384] *** Process received signal ***
+[dy03:26384] Signal: Segmentation fault (11)
+[dy03:26384] Signal code: Address not mapped (1)
+[dy03:26384] Failing at address: 0xfffffffffffffffa
+[dy03:26384] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2b9cbbacb5e0]
+[dy03:26384] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2b9cbbd584dc]
+[dy03:26384] [ 2] ./cardiacsim[0x401c97]
+[dy03:26384] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2b9cbbcf9c05]
+[dy03:26384] [ 4] ./cardiacsim[0x40257f]
+[dy03:26384] *** End of error message ***
+[dy03:26393] *** Process received signal ***
+[dy03:26393] Signal: Segmentation fault (11)
+[dy03:26393] Signal code: Address not mapped (1)
+[dy03:26393] Failing at address: 0xfffffffffffffffa
+[dy03:26393] [ 0] /usr/lib64/libpthread.so.0(+0xf5e0)[0x2ae6b0b765e0]
+[dy03:26393] [ 1] /usr/lib64/libc.so.6(cfree+0x1c)[0x2ae6b0e034dc]
+[dy03:26393] [ 2] ./cardiacsim[0x401c97]
+[dy03:26393] [ 3] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x2ae6b0da4c05]
+[dy03:26393] [ 4] ./cardiacsim[0x40257f]
+[dy03:26393] *** End of error message ***
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.16124
+Sustained Gflops Rate       : 49.0248
+Sustained Bandwidth (GB/sec): 56.0283
+
+Max: 0.992891 L2norm: 0.288324
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 6 with PID 26384 on node dy03 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+Finished with execution!
