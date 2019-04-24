@@ -1,0 +1,271 @@
+Loading openmpi module ...
+Loading GCC module ...
+
+======================================================================================
+======================================================================================
+
+Setting stack size to unlimited...
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 1030562
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) 32768000
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) unlimited
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 4096
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+Serial version ...
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 400
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.20164
+Sustained Gflops Rate       : 7.22907
+Sustained Bandwidth (GB/sec): 8.2618
+
+Max: 0.991272 L2norm: 0.592597
+Serial version ...
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 9.28783
+Sustained Gflops Rate       : 6.12945
+Sustained Bandwidth (GB/sec): 7.00508
+
+Max: 0.992891 L2norm: 0.288324
+Serial version ...
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 256
+Duration of Sim : 10000
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 193895
+Elapsed Time (sec)          : 1455.33
+Sustained Gflops Rate       : 0.244479
+Sustained Bandwidth (GB/sec): 0.279405
+
+Max: 5.43472e-323 L2norm: 0
+1 MPI n=256
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+Serial version ...
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 512
+Duration of Sim : 5000
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 96948
+Elapsed Time (sec)          : 90.9187
+Sustained Gflops Rate       : 7.82679
+Sustained Bandwidth (GB/sec): 8.9449
+
+Max: 0.983968 L2norm: 0.602024
+2 MPI n=256
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+Serial version ...
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 2500
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 48474
+Elapsed Time (sec)          : 191.219
+Sustained Gflops Rate       : 7.4428
+Sustained Bandwidth (GB/sec): 8.50606
+
+Max: 0.983819 L2norm: 0.633518
+4 MPI n=256
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+Serial version ...
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 2048
+Duration of Sim : 1250
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 24237
+Elapsed Time (sec)          : 586.065
+Sustained Gflops Rate       : 4.85681
+Sustained Bandwidth (GB/sec): 5.55064
+
+Max: 0.97616 L2norm: 0.638694
+8 MPI n=256
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+Serial version ...
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 4096
+Duration of Sim : 725
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 14058
+Elapsed Time (sec)          : 1660.29
+Sustained Gflops Rate       : 3.97757
+Sustained Bandwidth (GB/sec): 4.54579
+
+Max: 0.993055 L2norm: 0.443322
+16 MPI n=256
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+Serial version ...
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 8192
+Duration of Sim : 1
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 20
+Elapsed Time (sec)          : 9.70684
+Sustained Gflops Rate       : 3.87159
+Sustained Bandwidth (GB/sec): 4.42468
+
+Max: 0.99899 L2norm: 0.646936
+32 MPI n=256
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+Finished with execution!

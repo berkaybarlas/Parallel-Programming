@@ -13,7 +13,7 @@
 ##SBATCH --exclusive
 ##SBATCH --constraint=e52695v4,36cpu
 #SBATCH --time=02:00:00
-#SBATCH --output=./outputs/e-cardiacsim-%j.out
+#SBATCH --output=./outputs/e-2-cardiacsim-%j.out
 #SBATCH --mail-type=ALL
 # #SBATCH --mail-user=bbarlas15@ku.edu.tr
 #SBATCH --mem-per-cpu=1000M
@@ -43,32 +43,38 @@ ulimit -l unlimited
 ulimit -a
 echo
 
+echo "Serial version ..."
+./cardiacsim-serial -n 400 -t 100
+
+echo "Serial version ..."
+./cardiacsim-serial -n 1024 -t 100
+
 # Different MPI+OpenMP configurations
 # [1 + 32] [2 + 16] [4 + 8] [8 + 4] [16 + 2] [32 + 1]
 
 
 echo "Serial version ..."
-./cardiacsim-serial -n 256 -t 404
+./cardiacsim-serial -n 256 -t 10000
 echo "1 MPI n=256"
 mpirun -np 1 ./cardiacsim -n 256 -t 404 -x 1 -y 4
 
 echo "Serial version ..."
-./cardiacsim-serial -n 512 -t 152
+./cardiacsim-serial -n 512 -t 5000
 echo "2 MPI n=256"
 mpirun -np 2 ./cardiacsim -n 512 -t 152 -x 1 -y 2
 
 echo "Serial version ..."
-./cardiacsim-serial -n 1024 -t 44
+./cardiacsim-serial -n 1024 -t 2500
 echo "4 MPI n=256"
 mpirun -np 4 ./cardiacsim -n 1024 -t 44 -x 1 -y 4
 
 echo "Serial version ..."
-./cardiacsim-serial -n 2048 -t 12
+./cardiacsim-serial -n 2048 -t 1250
 echo "8 MPI n=256"
 mpirun -np 8 ./cardiacsim -n 2048 -t 12 -x 1 -y 8
 
 echo "Serial version ..."
-./cardiacsim-serial -n 4096 -t 3
+./cardiacsim-serial -n 4096 -t 725
 echo "16 MPI n=256"
 mpirun -np 16 ./cardiacsim -n 4096 -t 3 -x 1 -y 16
 

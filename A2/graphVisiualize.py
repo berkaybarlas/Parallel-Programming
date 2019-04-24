@@ -31,7 +31,7 @@ class FigureData:
 
         plt.ylabel('Speedup Factor')
         if self.xlabel:
-            plt.xlabel('Number of Threads')
+            plt.xlabel('Number of Processes')
             tick_values = [2**x for x in range(0,6)]
             plt.xticks(tick_values,[("%.0f" % x)  for x in tick_values])
         plt.yticks(self.dataY,[("%.2f" % x)  for x in self.dataY])
@@ -58,6 +58,19 @@ if len(sys.argv) > 1:
 
 figureDatas = []
 numCores = [1, 2, 4, 8, 16, 32]
+
+
+# Strong Scaling
+
+speedup_32_core = [6.00341,9.94901,9.88341, 17.2998, 20.3554, 13.3983, 34.418, 17.8163, 30.9165, 38.5679, 30.1401, 45.0308, 48.9201, 20.2911]
+#speedup_32_core = [serial_part2A / x for x in speedup_32_core]
+title ='Strong Scaling'
+fileName = 'strong-scaling'
+
+partB_sudoku_32 = FigureData(['1 MPI','2 MPI 2 1','2 MPI 1 2','4 MPI 2 2','4 MPI 1 4','4 MPI 4 1','8 MPI 1 8','8 MPI 8 1','8 MPI 2 4','16 MPI 4 ','16 MPI 8 ','16 MPI 2 ','16 MPI 1 ','16 MPI 16'
+], speedup_32_core, title, fileName, 'red', 'o', False)
+figureDatas.append(partB_sudoku_32)
+##
 
 # Data 1 #
 serial_part1A = 13.33

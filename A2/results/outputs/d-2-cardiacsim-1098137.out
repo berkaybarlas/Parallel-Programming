@@ -1,0 +1,175 @@
+Loading openmpi module ...
+Loading GCC module ...
+
+======================================================================================
+======================================================================================
+
+Setting stack size to unlimited...
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 1030562
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) 32768000
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) unlimited
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 4096
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+Serial version ...
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 8.40309
+Sustained Gflops Rate       : 6.7748
+Sustained Bandwidth (GB/sec): 7.74263
+
+Max: 0.992891 L2norm: 0.288324
+1 MPI + 2 OpenMP
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+2 MPI + 2 OpenMP
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+4 MPI + 2 OpenMP
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+8 MPI + 2 OpenMP
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+16 MPI + 2 OpenMP
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+1 MPI + 4 OpenMP
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+2 MPI + 4 OpenMP
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+4 MPI + 4 OpenMP
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+8 MPI + 4 OpenMP
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+1 MPI + 8 OpenMP
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+2 MPI + 8 OpenMP
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+4 MPI + 8 OpenMP
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+1 MPI + 16 OpenMP
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+2 MPI + 16 OpenMP
+--------------------------------------------------------------------------
+An ORTE daemon has unexpectedly failed after launch and before
+communicating back to mpirun. This could be caused by a number
+of factors, including an inability to create a connection back
+to mpirun due to a lack of common network interfaces and/or no
+route found between them. Please check network connectivity
+(including firewalls and network routing requirements).
+--------------------------------------------------------------------------
+Finished with execution!

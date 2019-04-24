@@ -1,0 +1,567 @@
+Loading openmpi module ...
+Loading GCC module ...
+
+======================================================================================
+======================================================================================
+
+Setting stack size to unlimited...
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 1030562
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) 32768000
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) unlimited
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 4096
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+Serial version ...
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 9.41721
+Sustained Gflops Rate       : 6.04524
+Sustained Bandwidth (GB/sec): 6.90885
+
+Max: 0.992891 L2norm: 0.288324
+1 MPI
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 9.48282
+Sustained Gflops Rate       : 6.00341
+Sustained Bandwidth (GB/sec): 6.86105
+
+Max: 0.992891 L2norm: 0.288324
+2 MPI 2 1
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 1
+
+[buyukliman.kuacc.ku.edu.tr:72761] 1 more process has sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:72761] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 5.72211
+Sustained Gflops Rate       : 9.94901
+Sustained Bandwidth (GB/sec): 11.3703
+
+Max: 0.992891 L2norm: 0.288324
+2 MPI 1 2
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 1
+
+[buyukliman.kuacc.ku.edu.tr:72790] 1 more process has sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:72790] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 5.76009
+Sustained Gflops Rate       : 9.88341
+Sustained Bandwidth (GB/sec): 11.2953
+
+Max: 0.992891 L2norm: 0.288324
+4 MPI 2 2
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 3.29075
+Sustained Gflops Rate       : 17.2998
+Sustained Bandwidth (GB/sec): 19.7712
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:72819] 3 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:72819] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+4 MPI 1 4
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 2.79676
+Sustained Gflops Rate       : 20.3554
+Sustained Bandwidth (GB/sec): 23.2633
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:72872] 3 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:72872] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+4 MPI 4 1
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 4.24899
+Sustained Gflops Rate       : 13.3983
+Sustained Bandwidth (GB/sec): 15.3123
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:72925] 3 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:72925] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+8 MPI 1 8
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 8
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.65406
+Sustained Gflops Rate       : 34.418
+Sustained Bandwidth (GB/sec): 39.3348
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:72978] 7 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:72978] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+8 MPI 8 1
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 8 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 3.19535
+Sustained Gflops Rate       : 17.8163
+Sustained Bandwidth (GB/sec): 20.3615
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:73079] 7 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:73079] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+8 MPI 2 4
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.84139
+Sustained Gflops Rate       : 30.9165
+Sustained Bandwidth (GB/sec): 35.3331
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:73181] 7 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:73181] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+16 MPI 4 4
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.47608
+Sustained Gflops Rate       : 38.5679
+Sustained Bandwidth (GB/sec): 44.0776
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:73283] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:73283] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+16 MPI 8 2
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 8 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.88882
+Sustained Gflops Rate       : 30.1401
+Sustained Bandwidth (GB/sec): 34.4458
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:73480] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:73480] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+16 MPI 2 8
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 8
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.26423
+Sustained Gflops Rate       : 45.0308
+Sustained Bandwidth (GB/sec): 51.4638
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:73677] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:73677] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+16 MPI 1 16
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 16
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.16372
+Sustained Gflops Rate       : 48.9201
+Sustained Bandwidth (GB/sec): 55.9087
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:00533] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:00533] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+16 MPI 16 1
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 16 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 2.80563
+Sustained Gflops Rate       : 20.2911
+Sustained Bandwidth (GB/sec): 23.1898
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:00732] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:00732] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+32 MPI 1 32
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 1 x 32
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 0.90577
+Sustained Gflops Rate       : 62.8518
+Sustained Bandwidth (GB/sec): 71.8306
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:00950] 31 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:00950] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+32 MPI 2 16
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 2 x 16
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 0.955103
+Sustained Gflops Rate       : 59.6054
+Sustained Bandwidth (GB/sec): 68.1204
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:01354] 31 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:01354] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+32 MPI 4 8
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 4 x 8
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.19053
+Sustained Gflops Rate       : 47.8186
+Sustained Bandwidth (GB/sec): 54.6498
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:01795] 31 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:01795] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+32 MPI 8 4
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 8 x 4
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 1.35624
+Sustained Gflops Rate       : 41.9759
+Sustained Bandwidth (GB/sec): 47.9725
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:02242] 31 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:02242] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+32 MPI 16 2
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 16 x 2
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 2.13236
+Sustained Gflops Rate       : 26.6977
+Sustained Bandwidth (GB/sec): 30.5117
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:02637] 31 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:02637] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+32 MPI 32 1
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+Grid Size       : 1024
+Duration of Sim : 100
+Time step dt    : 0.0515744
+Process geometry: 32 x 1
+
+Number of Iterations        : 1939
+Elapsed Time (sec)          : 2.93125
+Sustained Gflops Rate       : 19.4215
+Sustained Bandwidth (GB/sec): 22.196
+
+Max: 0.992891 L2norm: 0.288324
+[buyukliman.kuacc.ku.edu.tr:03041] 31 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[buyukliman.kuacc.ku.edu.tr:03041] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+Finished with execution!

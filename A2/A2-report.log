@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.17)  20 APR 2019 15:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.17)  24 APR 2019 23:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -715,13 +715,8 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count297
-
-Underfull \hbox (badness 10000) in paragraph at lines 97--102
-
- []
-
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 103.
-(/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
@@ -730,70 +725,86 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-) [1
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 117.
+ [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 139.
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <8> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 139.
+ [2] [3] [4]
+<./img/Strong-Scaling.png, id=26, 811.03pt x 500.87125pt>
+File: ./img/Strong-Scaling.png Graphic file (type png)
+<use ./img/Strong-Scaling.png>
+Package pdftex.def Info: ./img/Strong-Scaling.png  used on input line 233.
+(pdftex.def)             Requested size: 345.0pt x 213.06999pt.
+ [5 <./img/Strong-Scaling.png>]
+<./img/1vs2.png, id=32, 811.03pt x 682.55pt>
+File: ./img/1vs2.png Graphic file (type png)
+<use ./img/1vs2.png>
+Package pdftex.def Info: ./img/1vs2.png  used on input line 250.
+(pdftex.def)             Requested size: 345.0pt x 290.35591pt.
+ [6 <./img/1vs2.png>]
+Overfull \hbox (5.29759pt too wide) detected at line 271
+\OML/cmm/m/it/10 CommunicationOverhead \OT1/cmr/m/n/10 = (1 \OMS/cmsy/m/n/10 ^^@ [] ^^C \OT1/cmr/m/n/10 100)
+ []
+
+<./img/comOverhead.png, id=37, 972.63374pt x 699.61375pt>
+File: ./img/comOverhead.png Graphic file (type png)
+<use ./img/comOverhead.png>
+Package pdftex.def Info: ./img/comOverhead.png  used on input line 275.
+(pdftex.def)             Requested size: 345.0pt x 248.15645pt.
+[7 <./img/comOverhead.png>]
+Overfull \hbox (20.82643pt too wide) in paragraph at lines 284--284
+[]\OT1/cmr/bx/n/12 Part D: Sin-gle and Dual Node Per-for-mance with OpenMP 
+ []
+
+<./img/mpi+openmp.png, id=44, 1209.51875pt x 682.55pt>
+File: ./img/mpi+openmp.png Graphic file (type png)
+<use ./img/mpi+openmp.png>
+Package pdftex.def Info: ./img/mpi+openmp.png  used on input line 293.
+(pdftex.def)             Requested size: 345.0pt x 194.685pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--301
 
  []
 
-<./img/speedup_part_1_A.png, id=14, 462.528pt x 346.896pt>
-File: ./img/speedup_part_1_A.png Graphic file (type png)
-<use ./img/speedup_part_1_A.png>
-Package pdftex.def Info: ./img/speedup_part_1_A.png  used on input line 139.
-(pdftex.def)             Requested size: 155.24895pt x 116.43451pt.
-<./img/speedup_part_1_A_strawberry.png, id=16, 462.528pt x 346.896pt>
-File: ./img/speedup_part_1_A_strawberry.png Graphic file (type png)
-<use ./img/speedup_part_1_A_strawberry.png>
-Package pdftex.def Info: ./img/speedup_part_1_A_strawberry.png  used on input line 144.
-(pdftex.def)             Requested size: 155.24895pt x 116.43451pt.
+[8 <./img/mpi+openmp.png>]
+<./img/mpivsopenmp.png, id=49, 1209.51875pt x 682.55pt>
+File: ./img/mpivsopenmp.png Graphic file (type png)
+<use ./img/mpivsopenmp.png>
+Package pdftex.def Info: ./img/mpivsopenmp.png  used on input line 305.
+(pdftex.def)             Requested size: 345.0pt x 194.685pt.
+ [9 <./img/mpivsopenmp.png>]
+<./img/Weak-Scaling.png, id=54, 811.03pt x 500.87125pt>
+File: ./img/Weak-Scaling.png Graphic file (type png)
+<use ./img/Weak-Scaling.png>
+Package pdftex.def Info: ./img/Weak-Scaling.png  used on input line 319.
+(pdftex.def)             Requested size: 345.0pt x 213.06999pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--152
-
+Overfull \hbox (30.29762pt too wide) detected at line 336
+\OML/cmm/m/it/10 CommunicationOverhead \OT1/cmr/m/n/10 = (1 \OMS/cmsy/m/n/10 ^^@ [] ^^C \OT1/cmr/m/n/10 100)
  []
 
-[2 <./img/speedup_part_1_A.png> <./img/speedup_part_1_A_strawberry.png>]
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 159.
- [3]
-Underfull \hbox (badness 10000) in paragraph at lines 167--168
-
- []
-
-
-Overfull \hbox (17.77086pt too wide) in paragraph at lines 171--171
-[]\OT1/cmr/bx/n/12 Part D: Sin-gle and Dual node Per-for-mance with OpenMP 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--174
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 179--180
-
- []
-
-<./img/grids_part_2_B.png, id=28, 462.528pt x 346.896pt>
-File: ./img/grids_part_2_B.png Graphic file (type png)
-<use ./img/grids_part_2_B.png>
-Package pdftex.def Info: ./img/grids_part_2_B.png  used on input line 190.
-(pdftex.def)             Requested size: 345.0pt x 258.76335pt.
-[4 <./img/grids_part_2_B.png>] [5] (/Users/berkaybarlas/Desktop/git/Parallel-Programming/A2/A2-report.aux) ) 
+[10 <./img/Weak-Scaling.png>] (/Users/berkaybarlas/Desktop/git/Parallel-Programming/A2/A2-report.aux) ) 
 Here is how much of TeX's memory you used:
- 16892 strings out of 492649
- 335920 string characters out of 6129622
- 389974 words of memory out of 5000000
- 20661 multiletter control sequences out of 15000+600000
- 539422 words of font info for 56 fonts, out of 8000000 for 9000
+ 17033 strings out of 492649
+ 337565 string characters out of 6129622
+ 579046 words of memory out of 5000000
+ 20797 multiletter control sequences out of 15000+600000
+ 539123 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,8n,51p,10493b,1174s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on /Users/berkaybarlas/Desktop/git/Parallel-Programming/A2/A2-report.pdf (5 pages, 201833 bytes).
+ 41i,7n,51p,10493b,1710s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on /Users/berkaybarlas/Desktop/git/Parallel-Programming/A2/A2-report.pdf (10 pages, 396505 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 102 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

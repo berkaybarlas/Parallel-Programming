@@ -15,6 +15,7 @@
 #include <math.h>
 #include <sys/time.h>
 #include <mpi.h>
+#include "omp.h"
 using namespace std;
 
 // Utilities
@@ -121,6 +122,9 @@ void simulate (double** E,  double** E_prev,double** R,
       E_prev[m+1][i] = E_prev[m-1][i];
     
     // Solve for the excitation, the PDE
+  #pragma omp parallel 
+  {
+    #pragma omp for collapse(2)
     for (j=1; j<=m; j++){
       for (i=1; i<=n; i++) {
 	E[j][i] = E_prev[j][i]+alpha*(E_prev[j][i+1]+E_prev[j][i-1]-4*E_prev[j][i]+E_prev[j+1][i]+E_prev[j-1][i]);
@@ -131,15 +135,18 @@ void simulate (double** E,  double** E_prev,double** R,
      * Solve the ODE, advancing excitation and recovery to the
      *     next timtestep
      */
+    #pragma omp for collapse(2)
     for (j=1; j<=m; j++){
       for (i=1; i<=n; i++)
 	E[j][i] = E[j][i] -dt*(kk* E[j][i]*(E[j][i] - a)*(E[j][i]-1)+ E[j][i] *R[j][i]);
     }
     
+    #pragma omp for collapse(2)
     for (j=1; j<=m; j++){
       for (i=1; i<=n; i++)
 	R[j][i] = R[j][i] + dt*(epsilon+M1* R[j][i]/( E[j][i]+M2))*(-R[j][i]-kk* E[j][i]*(E[j][i]-b-1));
     }
+  }
     
 }
 
@@ -297,13 +304,13 @@ int main (int argc, char** argv)
   double **my_E;
   double **my_E_prev;
   double **my_R;
-
+/**
+ * Missing PART !!
+ * not save case 
+ * and not fully dividebly 
+ **/
   int x_size = n / px; 
   int y_size = m / py;
-  /**
- * Increase x_size and y_size if not fully dividable 
- * m equals n 
- **/
   int x_pos = rank % px;
   int y_pos = rank / px;
 
@@ -315,11 +322,9 @@ int main (int argc, char** argv)
   /// send required data to processes
 
   //printf("xsize %d ysize %d, n %d m %d\n",x_size, y_size, n, m);
-  if(no_comm == 0) {
-    divideOrCollectData(0, E, my_E, x_size, y_size, n, m, rank);
-    divideOrCollectData(0, E_prev, my_E_prev, x_size, y_size, n, m, rank);
-    divideOrCollectData(0, R, my_R, x_size, y_size, n, m, rank);
-  }
+  divideOrCollectData(0, E, my_E, x_size, y_size, n, m, rank);
+  divideOrCollectData(0, E_prev, my_E_prev, x_size, y_size, n, m, rank);
+  divideOrCollectData(0, R, my_R, x_size, y_size, n, m, rank);
   
   double *leftSend, *rightSend, *left, *right;
   int upperRank = rank - px;
@@ -340,59 +345,59 @@ int main (int argc, char** argv)
   MPI_Status status[8];
   while (t<T) {
     int requestCount  = 0;
+    /// send and recieve ghost cells to and from neighbor processes 
     
-    if(no_comm == 0) {
-      /// send and recieve ghost cells to and from neighbor processes 
+    // recieve up 
+    if(y_pos != 0){
+      MPI_Irecv(my_E_prev[0], x_size+2, MPI_DOUBLE, upperRank, BOTTOMTAG, MPI_COMM_WORLD, &reqs[requestCount++]);
+      MPI_Isend(my_E_prev[1], x_size+2, MPI_DOUBLE, upperRank, UPPERTAG, MPI_COMM_WORLD, &reqs[requestCount++]); 
+    }
       
-      // top side send&recieve
-      if(y_pos != 0){
-        MPI_Irecv(my_E_prev[0], x_size+2, MPI_DOUBLE, upperRank, BOTTOMTAG, MPI_COMM_WORLD, &reqs[requestCount++]);
-        MPI_Isend(my_E_prev[1], x_size+2, MPI_DOUBLE, upperRank, UPPERTAG, MPI_COMM_WORLD, &reqs[requestCount++]); 
-      }
-      
-      // bottom side send&recieve
-      if(y_pos != ((P - 1) / px) ) {
-        MPI_Irecv(my_E_prev[y_size+1], x_size+2, MPI_DOUBLE, bottomRank, UPPERTAG, MPI_COMM_WORLD, &reqs[requestCount++]);
-        MPI_Isend(my_E_prev[y_size], x_size+2, MPI_DOUBLE, bottomRank, BOTTOMTAG, MPI_COMM_WORLD, &reqs[requestCount++]); 
-      }
-      
-      // left side send&recieve
-      if(x_pos != 0 ) {
-        int i; 
-        for(i = 0; i < y_size; i++) {
-        leftSend[i] = my_E_prev[i+1][1]; 
-        }
-        MPI_Irecv(&left[0], y_size, MPI_DOUBLE, rightRank, LEFTTAG, MPI_COMM_WORLD, &reqs[requestCount++]);
-        MPI_Isend(&leftSend[0], y_size, MPI_DOUBLE, rightRank, RIGHTTAG, MPI_COMM_WORLD, &reqs[requestCount++]); 
     
-      }
-      // right side send&recieve
-      if(x_pos != ((P-1) % px)) {
-        int i; 
-        for(i = 0; i < y_size; i++) {
-        rightSend[i] = my_E_prev[i+1][x_size];
-        }
-        MPI_Irecv(&right[0], y_size, MPI_DOUBLE, leftRank, RIGHTTAG, MPI_COMM_WORLD, &reqs[requestCount++]);
-        MPI_Isend(&rightSend[0], y_size, MPI_DOUBLE, leftRank, LEFTTAG, MPI_COMM_WORLD, &reqs[requestCount++]); 
+    // recieve down 
+    if(y_pos != ((P - 1) / px) ) {
+      MPI_Irecv(my_E_prev[y_size+1], x_size+2, MPI_DOUBLE, bottomRank, UPPERTAG, MPI_COMM_WORLD, &reqs[requestCount++]);
+      MPI_Isend(my_E_prev[y_size], x_size+2, MPI_DOUBLE, bottomRank, BOTTOMTAG, MPI_COMM_WORLD, &reqs[requestCount++]); 
+    }
     
-      } 
-      //
-      MPI_Waitall(requestCount, reqs, status);
-    
-      // left side
-      int i;
-      if(x_pos != 0 ) {
+    // left side
+    if(x_pos != 0 ) {
+      int i; 
       for(i = 0; i < y_size; i++) {
-        my_E_prev[i+1][0] = left[i];
+       leftSend[i] = my_E_prev[i+1][1]; 
       }
+      MPI_Irecv(&left[0], y_size, MPI_DOUBLE, rightRank, LEFTTAG, MPI_COMM_WORLD, &reqs[requestCount++]);
+      MPI_Isend(&leftSend[0], y_size, MPI_DOUBLE, rightRank, RIGHTTAG, MPI_COMM_WORLD, &reqs[requestCount++]); 
+  
+    }
+    // right side
+    if(x_pos != ((P-1) % px)) {
+      int i; 
+      for(i = 0; i < y_size; i++) {
+       rightSend[i] = my_E_prev[i+1][x_size];
       }
-      // right side 
-      if(x_pos != ((P-1) % px)) {
-        for(i = 0; i < y_size; i++) {
-          my_E_prev[i+1][x_size+1] = right[i];
-        }
+      MPI_Irecv(&right[0], y_size, MPI_DOUBLE, leftRank, RIGHTTAG, MPI_COMM_WORLD, &reqs[requestCount++]);
+      MPI_Isend(&rightSend[0], y_size, MPI_DOUBLE, leftRank, LEFTTAG, MPI_COMM_WORLD, &reqs[requestCount++]); 
+  
+    } 
+    
+    //
+  
+    MPI_Waitall(requestCount, reqs, status);
+    // left side
+    int i;
+    if(x_pos != 0 ) {
+    for(i = 0; i < y_size; i++) {
+      my_E_prev[i+1][0] = left[i];
+    }
+    }
+    // right side 
+    if(x_pos != ((P-1) % px)) {
+      for(i = 0; i < y_size; i++) {
+        my_E_prev[i+1][x_size+1] = right[i];
       }
     }
+
     t += dt;
     niter++;
 
@@ -413,10 +418,8 @@ int main (int argc, char** argv)
       }
     }
   }//end of while loop
-  if(no_comm == 0) {
-    divideOrCollectData(1, E_prev, my_E_prev, x_size, y_size, m, n, rank); 
-  }
-  
+
+  divideOrCollectData(1, E_prev, my_E_prev, x_size, y_size, m, n, rank); 
   if(rank == 0) { // master
     double time_elapsed = getTime() - t0;
 
