@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.jsm": "javascript",
+        "type_traits": "c",
+        "iomanip": "c"
+    }
+}

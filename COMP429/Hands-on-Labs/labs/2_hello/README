@@ -1,0 +1,38 @@
+Instructor: Didem Unat, Koc University dunat@ku.edu.tr
+Exercise-1: Hello World with CUDA
+
+Credit: Mark Ebersole - NVIDIA Corporation
+
+Description:
+A very simple Hello World designed to help demonstrate the high parallelism
+available in a modern GPU.
+
+Compile:
+Using the NVIDIA C Compiler
+  nvcc  -arch=sm_20 -o hello hello.cu
+or 
+  make 
+
+Instructions:
+- Compile and run the code 
+- Comment out the first part of the code and Comment in the second part of the code
+- Compile and Run, what do you observe?
+- Change 12 to 16, what happens?
+hello<<< 1, 12>>>();
+- Change 1 to 2, what happens?
+hello<<< 2, 12>>>();
+- Change both, what happens?
+hello<<< 2, 16>>>();
+
+Observations:
+Compile and run the code 
+       CPU prints hello world but GPU does nothing.
+Comment out the first part of the code and comment in the second part of the code
+Compile and Run, what do you observe?
+       This prints hello world – one character in each line
+Change 12 to 16, what happens?
+       There are more threads than characters in the string, some characters are printed twice!
+Change 1 to 2, what happens?
+       Two thread blocks are created, the message is printed twice
+Change both, what happens?
+       Both 4 and 5 occur, some characters are printed twice, and the message is printed twice.

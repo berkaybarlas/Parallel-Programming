@@ -1,3 +1,25 @@
+ cd /scratch/users/bbarlas15/
+
+module load openmpi/3.0.0 && module load gcc/7.3.0
+make cardiacsim
+make cardiacsim-mpi
+sbatch a.1.sh
+scp -r ./cardiacsim bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/
+scp -r a.1.sh bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/cardiacsim
+
+scp a.sh bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/card
+scp bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/cardiacsim/1-a-cardiacsim-1095476.out ./
+scp bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/cardiacsim/b-cardiacsim-1095510.out ./
+scp bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/cardiacsim/c-cardiacsim-1095541.out ./
+scp bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/cardiacsim/d-1-cardiacsim-1095542.out ./
+scp bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/cardiacsim/d-2-cardiacsim-1095543.out ./
+
+b-cardiacsim-1095510.out
+
+make serial && make openmp && make mpi
+
+OMPI_CC=/usr/local/opt/llvm/bin/clang OMPI_CXX=/usr/local/opt/llvm/bin/clang++ make cardiacsim
+
  module load intel/ipsxe2019-u1ce
 
 icc sudoku_solver.c -o sudoku_solver -qopenmp -lm && ./sudoku_solver 16 4x4_hard_1.csv
@@ -26,3 +48,4 @@ scp bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/image_filter/image-
 scp bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/sudoku/sudoku-jobs-16.out ./
 
 scp -r sudoku bbarlas15@login.kuacc.ku.edu.tr:/scratch/users/bbarlas15/
+

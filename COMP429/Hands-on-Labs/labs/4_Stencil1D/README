@@ -1,0 +1,13 @@
+Didem Unat @ Koc University 
+
+Credit: Mark Harris - NVIDIA Corporation
+
+Description:
+A simple 1D Stencil code useful (basis for many PDE solvers).
+
+1st kernel: stencil_1D_simple 
+Performs stencil with a radius 3 on 1D array
+
+2nd kernel: stencil_1D_improved
+Uses shared memory to eliminate redundant memory accesses
+Fix the problems in the code one by one
