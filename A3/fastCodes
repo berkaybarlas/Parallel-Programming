@@ -1,0 +1,2 @@
+srun  -A users -p short -n1 --gres=gpu:1 --qos=users --pty $SHELL
+
