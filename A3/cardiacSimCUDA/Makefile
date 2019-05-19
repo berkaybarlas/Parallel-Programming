@@ -274,15 +274,15 @@ endif
 cardiacsim.o:cardiacsim.cpp
 	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
 
-cardiacsim_kernels_v2.o:cardiacsim_kernels_v2.cu
+cardiacsim_kernels_v3.o:cardiacsim_kernels_v3.cu
 	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
 
-cardiacsim: cardiacsim_kernels_v2.o
+cardiacsim: cardiacsim_kernels_v3.o
 	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o $@ $+ $(LIBRARIES)
 
 run: build
 	$(EXEC) ./cardiacsim
 
 clean:
-	rm -f card cardiacsim cardiacsim.o cardiacsim_kernels_v2.o
+	rm -f card cardiacsim cardiacsim.o cardiacsim_kernels_v3.o
 
