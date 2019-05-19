@@ -49,18 +49,6 @@ double getTime() {
 
 }  // end getTime()
 
-// Allocate a 2D array
-double **alloc2D(int m, int n) {
-    double **E;
-    int nx = n, ny = m;
-    E = (double **) malloc(sizeof(double *) * ny + sizeof(double) * nx * ny);
-    assert(E);
-    int j;
-    for (j = 0; j < ny; j++)
-        E[j] = (double *) (E + ny) + j * nx;
-    return (E);
-}
-
 // Reports statistics about the computation
 // These values should not vary (except to within roundoff)
 // when we use different numbers of  processes to solve the problem
@@ -81,39 +69,29 @@ double stats(double *E, int m, int n, double *_mx) {
 	return l2norm;
 }
 
-__global__ void ode(const double a, const double kk, const double dt, const int n, const int m, double *E, double *R,
-                    const double epsilon,
-                    const double M1, const double M2, const double b) {
-										printf("ode!!!\n");
+__global__ void ode(const double *a, const double *kk, const double *dt, const int *n, const int *m, double *E, double *R,
+                    const double *epsilon,
+                    const double *M1, const double *M2, const double *b) {
     /*
      * Solve the ODE, advancing excitation and recovery to the
      *     next timtestep
        */
-    int tx = threadIdx.x, ty = threadIdx.y;
-    int bx = blockIdx.y, by = blockIdx.y;
+    int i = threadIdx.x + 1;
+    int j = blockIdx.x + 1;
+    int index = j * (*n + 2) + i;
 
-    int j = (by * blockDim.y + ty) + 1;
-    int i = (bx * blockDim.x + tx) + 1;
-
-    int index = j * (n + 2) + i;
-
-    E[index] = E[index] - dt * (kk * E[index] * (E[index] - a) * (E[index] - 1) + E[index] * R[index]);
-    R[index] = R[index] + dt * (epsilon + M1 * R[index] / (E[index] + M2)) * (-R[index] - kk * E[index] * (E[index] - b - 1));
+    E[index] = E[index] - *dt * (*kk * E[index] * (E[index] - *a) * (E[index] - 1) + E[index] * R[index]);
+    R[index] = R[index] + *dt * (*epsilon + *M1 * R[index] / (E[index] + *M2)) * (-R[index] - *kk * E[index] * (E[index] - *b - 1));
 }
 
-__global__ void pde(const int n, const int m, double *E, double *E_prev, const double alpha) {
-	printf("pde!!!\n");	
-		int tx = threadIdx.x, ty = threadIdx.y;
-    int bx = blockIdx.y, by = blockIdx.y;
-
-    int j = (by * blockDim.y + ty) + 1;
-    int i = (bx * blockDim.x + tx) + 1;
-
-		int index = j * (n + 2) + i;
-
-    E[index] = E_prev[index] + alpha *
-                               (E_prev[index + 1] + E_prev[index - 1] - 4 * E_prev[index] + E_prev[index + m + 2] +
-                                E_prev[index - (m + 2)]);
+__global__ void pde(const int *n, const int *m, double *E, double *E_prev, const double *alpha) {
+		int i = threadIdx.x + 1;
+		int j = blockIdx.x + 1;
+		int index = j * (*n + 2) + i;
+		
+    E[index] = E_prev[index] + *alpha *
+                               (E_prev[index + 1] + E_prev[index - 1] - 4 * E_prev[index] + E_prev[index + *m + 2] +
+                                E_prev[index - (*m + 2)]);
 }
 
 void simulate(double *E, double *E_prev, double *R,
@@ -138,32 +116,47 @@ void simulate(double *E, double *E_prev, double *R,
 		for (i = 1; i <= n; i++)
 				E_prev[(m + 1) * (n+2) + i] = E_prev[(m - 1) * (n+2) + i];
 
-    int d_n, d_m;
+    int *d_n, *d_m;
     double *d_E, *d_E_prev, *d_R;
-    double d_alpha, d_kk, d_dt, d_a, d_epsilon, d_M1, d_M2, d_b;
+    double *d_alpha, *d_kk, *d_dt, *d_a, *d_epsilon, *d_M1, *d_M2, *d_b;
 
     cudaMalloc((void **) &d_E, sizeof(double) * (m + 2) * (n + 2));
     cudaMalloc((void **) &d_E_prev, sizeof(double) * (m + 2) * (n + 2));
-    cudaMalloc((void **) &d_R, sizeof(double) * (m + 2) * (n + 2));
+		cudaMalloc((void **) &d_R, sizeof(double) * (m + 2) * (n + 2));
+
+		cudaMalloc((void **) &d_n, sizeof(int));
+		cudaMalloc((void **) &d_m, sizeof(int));
+
+		cudaMalloc((void **) &d_alpha, sizeof(double));
+		cudaMalloc((void **) &d_kk, sizeof(double));
+		cudaMalloc((void **) &d_dt, sizeof(double));
+		cudaMalloc((void **) &d_a, sizeof(double));
+		cudaMalloc((void **) &d_epsilon, sizeof(double));
+		cudaMalloc((void **) &d_M1, sizeof(double));
+		cudaMalloc((void **) &d_M2, sizeof(double));
+		cudaMalloc((void **) &d_b, sizeof(double));
+
     cudaMemcpy(d_E, E, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyHostToDevice);
     cudaMemcpy(d_E_prev, E_prev, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyHostToDevice);
 		cudaMemcpy(d_R, R, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyHostToDevice);
 
-    cudaMemcpy(&d_n, &n, sizeof(int), cudaMemcpyHostToDevice);
-    cudaMemcpy(&d_m, &m, sizeof(int), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_n, &n, sizeof(int), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_m, &m, sizeof(int), cudaMemcpyHostToDevice);
 
-    cudaMemcpy(&d_alpha, &alpha, sizeof(double), cudaMemcpyHostToDevice);
-    cudaMemcpy(&d_kk, &kk, sizeof(double), cudaMemcpyHostToDevice);
-    cudaMemcpy(&d_dt, &dt, sizeof(double), cudaMemcpyHostToDevice);
-    cudaMemcpy(&d_a, &a, sizeof(double), cudaMemcpyHostToDevice);
-    cudaMemcpy(&d_epsilon, &epsilon, sizeof(double), cudaMemcpyHostToDevice);
-    cudaMemcpy(&d_M1, &M1, sizeof(double), cudaMemcpyHostToDevice);
-    cudaMemcpy(&d_M2, &M2, sizeof(double), cudaMemcpyHostToDevice);
-    cudaMemcpy(&d_b, &b, sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_alpha, &alpha, sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_kk, &kk, sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_dt, &dt, sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_a, &a, sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_epsilon, &epsilon, sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_M1, &M1, sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_M2, &M2, sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_b, &b, sizeof(double), cudaMemcpyHostToDevice);
 
-    pde<<<m+2, n+2>>>(d_n, d_m, d_E, d_E_prev, d_alpha);
-		ode<<<m+2, n+2>>>(d_a, d_kk, d_dt, d_n, d_m, d_E, d_R, d_epsilon, d_M1, d_M2, d_b);
-		
+		pde<<<m, n>>>(d_n, d_m, d_E, d_E_prev, d_alpha);
+		cudaDeviceSynchronize();
+		ode<<<m, n>>>(d_a, d_kk, d_dt, d_n, d_m, d_E, d_R, d_epsilon, d_M1, d_M2, d_b);
+		cudaDeviceSynchronize();
+
     cudaMemcpy(E, d_E, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyDeviceToHost);
     cudaMemcpy(E_prev, d_E_prev, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyDeviceToHost);
     cudaMemcpy(R, d_R, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyDeviceToHost);
@@ -171,16 +164,16 @@ void simulate(double *E, double *E_prev, double *R,
     cudaFree(d_E);
     cudaFree(d_E_prev);
     cudaFree(d_R);
-    cudaFree(&d_n);
-    cudaFree(&d_m);
-    cudaFree(&d_alpha);
-    cudaFree(&d_kk);
-    cudaFree(&d_dt);
-    cudaFree(&d_a);
-    cudaFree(&d_epsilon);
-    cudaFree(&d_M1);
-    cudaFree(&d_M2);
-    cudaFree(&d_b);
+    cudaFree(d_n);
+    cudaFree(d_m);
+    cudaFree(d_alpha);
+    cudaFree(d_kk);
+    cudaFree(d_dt);
+    cudaFree(d_a);
+    cudaFree(d_epsilon);
+    cudaFree(d_M1);
+    cudaFree(d_M2);
+    cudaFree(d_b);
 }
 // Define Kernels
 

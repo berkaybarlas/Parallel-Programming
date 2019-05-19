@@ -208,27 +208,7 @@ int main(int argc, char **argv) {
         t += dt;
         niter++;
 
-				for (j = 1; j <= m; j++) {
-					for (i = 1; i <= n; i++) {
-						cout << E[j * (n+2) + i] << ", ";
-					}
-					cout << endl;
-				}
-				cout << endl;
-
         simulate(E, E_prev, R, alpha, n, m, kk, dt, a, epsilon, M1, M2, b);
-
-				for (j = 1; j <= m; j++) {
-					for (i = 1; i <= n; i++) {
-						cout << E[j * (n+2) + i] << ", ";
-					}
-					cout << endl;
-				}
-
-				cout << endl;
-				cout << endl;
-				cout << endl;
-				cout << endl;
 
         //swap current E with previous E
         double *tmp = E;
