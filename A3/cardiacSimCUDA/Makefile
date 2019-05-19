@@ -276,15 +276,13 @@ cardiacsim.o:cardiacsim.cpp
 cardiacsim_kernels.o:cardiacsim_kernels.cu
 	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
 
-cardiacsim: cardiacsim.o cardiacsim_kernels.o
+cardiacsim: cardiacsim_kernels.o
 	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o $@ $+ $(LIBRARIES)
-	$(EXEC) mkdir -p ../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)
-	$(EXEC) cp $@ ../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)
 
 run: build
 	$(EXEC) ./cardiacsim
 
 clean:
 	rm -f cardiacsim cardiacsim.o cardiacsim_kernels.o
-	rm -rf ../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)/cardiacsim
+	rm -rf ./bin/cardiacsim
 
