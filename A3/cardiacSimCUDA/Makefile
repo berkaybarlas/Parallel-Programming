@@ -34,6 +34,7 @@
 ################################################################################
 
 # Location of the CUDA Toolkit
+#CUDA_PATH ?= /opt/cuda
 CUDA_PATH ?= /usr/local/cuda-9.1
 #CUDA_PATH ?= /usr/local/cuda-10.0
 
@@ -273,16 +274,15 @@ endif
 cardiacsim.o:cardiacsim.cpp
 	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
 
-cardiacsim_kernels.o:cardiacsim_kernels.cu
+cardiacsim_kernels_v2.o:cardiacsim_kernels_v2.cu
 	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
 
-cardiacsim: cardiacsim_kernels.o
+cardiacsim: cardiacsim_kernels_v2.o
 	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o $@ $+ $(LIBRARIES)
 
 run: build
 	$(EXEC) ./cardiacsim
 
 clean:
-	rm -f cardiacsim cardiacsim.o cardiacsim_kernels.o
-	rm -rf ./bin/cardiacsim
+	rm -f card cardiacsim cardiacsim.o cardiacsim_kernels_v2.o
 
