@@ -71,29 +71,20 @@ double stats(double *E, int m, int n, double *_mx) {
 
 __global__ void pde_ode(const double *a, const double *kk, const double *dt, const int *n, const int *m, double *E, double *R,
                     const double *epsilon, const double *M1, const double *M2, const double *b, double *E_prev, const double *alpha) {
-                    
-    __shared__ double temp_E[1002];
-    __shared__ double temp_R[1002]; 
+           
     int i = threadIdx.x + 1;
     int j = blockIdx.x + 1;
     int index = j * (*n + 2) + i;
 
-    temp_E[i] = E[index]; 
-    temp_R[i] = R[index];
+    double temp_E = E[index]; 
+    double temp_R = R[index];
 
-    if(i == 1) {
-        temp_E[0] = E[index-1];
-        temp_R[0] = R[index-1];
-    } else if(i == *n) {
-        temp_E[*n+1] = E[index+1];
-        temp_R[*n+1] = R[index+1];
-    }
+    temp_E = E_prev[index] + *alpha * (E_prev[index + 1] + E_prev[index - 1] - 4 * E_prev[index] + E_prev[index + *m + 2] + E_prev[index - (*m + 2)]);
+    temp_E = temp_E - *dt * (*kk * temp_E * (temp_E - *a) * (temp_E - 1) + temp_E * temp_R);
+    temp_R = temp_R + *dt * (*epsilon + *M1 * temp_R / (temp_E + *M2)) * (-temp_R - *kk * temp_E * (temp_E - *b - 1));
 
-    temp_E[i] = E_prev[index] + *alpha * (E_prev[index + 1] + E_prev[index - 1] - 4 * E_prev[index] + E_prev[index + *m + 2] + E_prev[index - (*m + 2)]);
-    temp_E[i] = temp_E[i] - *dt * (*kk * temp_E[i] * (temp_E[i] - *a) * (temp_E[i] - 1) + temp_E[i] * temp_R[i]);
-    R[index] = temp_R[i] + *dt * (*epsilon + *M1 * temp_R[i] / (temp_E[i] + *M2)) * (-temp_R[i] - *kk * temp_E[i] * (temp_E[i] - *b - 1));
-
-    E[index] = temp_E[i];
+    E[index] = temp_E;
+    R[index] = temp_R;
 }
 
 void simulate(double *E, double *E_prev, double *R,
