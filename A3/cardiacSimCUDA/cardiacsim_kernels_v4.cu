@@ -80,16 +80,31 @@ __global__ void pde_ode(const double *a, const double *kk, const double *dt, con
   
     __shared__ double block_E_prev[TILE_DIM + 2][TILE_DIM + 2];     
 
-    int index = (by * blockDim.y * (*n + 2)) + (bx * blockDim.x) + (*n + 2) + 1 + (ty * (*n + 2) + tx);
+    if(tx == 0) {
+        int index = (by * blockDim.y * (*n + 2)) + (bx * blockDim.x) + ((ty + 1) * (*n + 2));
 
-    if(tx == 0 && ty == 0) {
-        for (int i = 0; i < blockDim.y + 2; i++) {
+        for (int j = 0; j < blockDim.x + 2; j++) {
+            block_E_prev[ty + 1][j] = E_prev[index + j];
+        }
+
+        if(ty == 0) {
+            int index = (by * blockDim.y * (*n + 2)) + (bx * blockDim.x);
+
             for (int j = 0; j < blockDim.x + 2; j++) {
-                int index = (by * blockDim.y * (*n + 2)) + (bx * blockDim.x) + (i * (*n + 2) + j);
-                block_E_prev[i][j] = E_prev[index];
+                block_E_prev[0][j] = E_prev[index + j];
+            }
+        }
+
+        if(ty == 1) {
+            int index = (by * blockDim.y * (*n + 2)) + (bx * blockDim.x) + ((blockDim.y + 1) * (*n + 2));
+
+            for (int j = 0; j < blockDim.x + 2; j++) {
+                block_E_prev[blockDim.y + 1][j] = E_prev[index + j];
             }
         }
     }
+
+    int index = (by * blockDim.y * (*n + 2)) + (bx * blockDim.x) + (*n + 2) + 1 + (ty * (*n + 2) + tx);
 
     __syncthreads();
 
