@@ -143,7 +143,6 @@ void simulate(double *E, double *E_prev, double *R,
 	cudaDeviceSynchronize();
 
     cudaMemcpy(E, d_E, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyDeviceToHost);
-    cudaMemcpy(E_prev, d_E_prev, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyDeviceToHost);
     cudaMemcpy(R, d_R, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyDeviceToHost);
 
     cudaFree(d_E);

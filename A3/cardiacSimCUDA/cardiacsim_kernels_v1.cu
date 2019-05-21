@@ -85,10 +85,10 @@ __global__ void ode(const double *a, const double *kk, const double *dt, const i
 }
 
 __global__ void pde(const int *n, const int *m, double *E, double *E_prev, const double *alpha) {
-		int i = threadIdx.x + 1;
-		int j = blockIdx.x + 1;
-		int index = j * (*n + 2) + i;
-		
+	int i = threadIdx.x + 1;
+	int j = blockIdx.x + 1;
+	int index = j * (*n + 2) + i;
+	
     E[index] = E_prev[index] + *alpha *
                                (E_prev[index + 1] + E_prev[index - 1] - 4 * E_prev[index] + E_prev[index + *m + 2] +
                                 E_prev[index - (*m + 2)]);
@@ -122,23 +122,23 @@ void simulate(double *E, double *E_prev, double *R,
 
     cudaMalloc((void **) &d_E, sizeof(double) * (m + 2) * (n + 2));
     cudaMalloc((void **) &d_E_prev, sizeof(double) * (m + 2) * (n + 2));
-		cudaMalloc((void **) &d_R, sizeof(double) * (m + 2) * (n + 2));
+	cudaMalloc((void **) &d_R, sizeof(double) * (m + 2) * (n + 2));
 
-		cudaMalloc((void **) &d_n, sizeof(int));
-		cudaMalloc((void **) &d_m, sizeof(int));
+	cudaMalloc((void **) &d_n, sizeof(int));
+	cudaMalloc((void **) &d_m, sizeof(int));
 
-		cudaMalloc((void **) &d_alpha, sizeof(double));
-		cudaMalloc((void **) &d_kk, sizeof(double));
-		cudaMalloc((void **) &d_dt, sizeof(double));
-		cudaMalloc((void **) &d_a, sizeof(double));
-		cudaMalloc((void **) &d_epsilon, sizeof(double));
-		cudaMalloc((void **) &d_M1, sizeof(double));
-		cudaMalloc((void **) &d_M2, sizeof(double));
-		cudaMalloc((void **) &d_b, sizeof(double));
+	cudaMalloc((void **) &d_alpha, sizeof(double));
+	cudaMalloc((void **) &d_kk, sizeof(double));
+	cudaMalloc((void **) &d_dt, sizeof(double));
+	cudaMalloc((void **) &d_a, sizeof(double));
+	cudaMalloc((void **) &d_epsilon, sizeof(double));
+	cudaMalloc((void **) &d_M1, sizeof(double));
+	cudaMalloc((void **) &d_M2, sizeof(double));
+	cudaMalloc((void **) &d_b, sizeof(double));
 
     cudaMemcpy(d_E, E, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyHostToDevice);
     cudaMemcpy(d_E_prev, E_prev, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyHostToDevice);
-		cudaMemcpy(d_R, R, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyHostToDevice);
+	cudaMemcpy(d_R, R, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyHostToDevice);
 
     cudaMemcpy(d_n, &n, sizeof(int), cudaMemcpyHostToDevice);
     cudaMemcpy(d_m, &m, sizeof(int), cudaMemcpyHostToDevice);
@@ -152,13 +152,12 @@ void simulate(double *E, double *E_prev, double *R,
     cudaMemcpy(d_M2, &M2, sizeof(double), cudaMemcpyHostToDevice);
     cudaMemcpy(d_b, &b, sizeof(double), cudaMemcpyHostToDevice);
 
-		pde<<<m, n>>>(d_n, d_m, d_E, d_E_prev, d_alpha);
-		cudaDeviceSynchronize();
-		ode<<<m, n>>>(d_a, d_kk, d_dt, d_n, d_m, d_E, d_R, d_epsilon, d_M1, d_M2, d_b);
-		cudaDeviceSynchronize();
+	pde<<<m, n>>>(d_n, d_m, d_E, d_E_prev, d_alpha);
+	cudaDeviceSynchronize();
+	ode<<<m, n>>>(d_a, d_kk, d_dt, d_n, d_m, d_E, d_R, d_epsilon, d_M1, d_M2, d_b);
+	cudaDeviceSynchronize();
 
     cudaMemcpy(E, d_E, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyDeviceToHost);
-    cudaMemcpy(E_prev, d_E_prev, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyDeviceToHost);
     cudaMemcpy(R, d_R, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyDeviceToHost);
 
     cudaFree(d_E);

@@ -23,6 +23,9 @@
 
 using namespace std;
 
+#define TILE_DIM 16
+#define RADIUS 1
+
 // External functions
 extern "C" void splot(double **E, double T, int niter, int m, int n);
 
@@ -70,18 +73,34 @@ double stats(double *E, int m, int n, double *_mx) {
 }
 
 __global__ void pde_ode(const double *a, const double *kk, const double *dt, const int *n, const int *m, double *E, double *R,
-                    const double *epsilon, const double *M1, const double *M2, const double *b, double *E_prev, const double *alpha) {
-           
-    int i = threadIdx.x + 1;
-    int j = blockIdx.x + 1;
-    int index = j * (*n + 2) + i;
+                    const double *epsilon, const double *M1, const double *M2, const double *b, double *E_prev, const double *alpha) { 
+
+    int tx = threadIdx.x, ty = threadIdx.y;
+    int bx = blockIdx.x, by = blockIdx.y;
+  
+    __shared__ double block_E_prev[TILE_DIM + 2][TILE_DIM + 2];     
+
+    int index = (by * blockDim.y * (*n + 2)) + (bx * blockDim.x) + (*n + 2) + 1 + (ty * (*n + 2) + tx);
+
+    if(tx == 0 && ty == 0) {
+        for (int i = 0; i < blockDim.y + 2; i++) {
+            for (int j = 0; j < blockDim.x + 2; j++) {
+                int index = (by * blockDim.y * (*n + 2)) + (bx * blockDim.x) + (i * (*n + 2) + j);
+                block_E_prev[i][j] = E_prev[index];
+            }
+        }
+    }
+
+    __syncthreads();
 
     double temp_E = E[index]; 
     double temp_R = R[index];
-
-    temp_E = E_prev[index] + *alpha * (E_prev[index + 1] + E_prev[index - 1] - 4 * E_prev[index] + E_prev[index + *m + 2] + E_prev[index - (*m + 2)]);
+    
+    temp_E = block_E_prev[ty + 1][tx + 1] + *alpha * (block_E_prev[ty + 1][tx + 2] + block_E_prev[ty + 1][tx] - 4 * block_E_prev[ty + 1][tx + 1] + block_E_prev[ty + 2][tx + 1] + block_E_prev[ty][tx + 1]);
     temp_E = temp_E - *dt * (*kk * temp_E * (temp_E - *a) * (temp_E - 1) + temp_E * temp_R);
     temp_R = temp_R + *dt * (*epsilon + *M1 * temp_R / (temp_E + *M2)) * (-temp_R - *kk * temp_E * (temp_E - *b - 1));
+
+    __syncthreads();
 
     E[index] = temp_E;
     R[index] = temp_R;
@@ -99,15 +118,17 @@ void simulate(double *E, double *E_prev, double *R,
      * Using mirror boundaries
      */
 
-		for (j = 1; j <= m; j++)
-				E_prev[j * (n+2)] = E_prev[j * (n+2) + 2];
- 		for (j = 1; j <= m; j++)
-		 		E_prev[j * (n+2) + (n + 1)] = E_prev[j * (n+2) + (n - 1)];
-
-		for (i = 1; i <= n; i++)
-				E_prev[i] = E_prev[2 * (n+2) + i];
-		for (i = 1; i <= n; i++)
-				E_prev[(m + 1) * (n+2) + i] = E_prev[(m - 1) * (n+2) + i];
+	for (j = 1; j <= m; j++)
+		E_prev[j * (n+2)] = E_prev[j * (n+2) + 2];
+ 	for (j = 1; j <= m; j++)
+	 	E_prev[j * (n+2) + (n + 1)] = E_prev[j * (n+2) + (n - 1)];
+	for (i = 1; i <= n; i++)
+	    E_prev[i] = E_prev[2 * (n+2) + i];
+    for (i = 1; i <= n; i++)
+        E_prev[(m + 1) * (n+2) + i] = E_prev[(m - 1) * (n+2) + i];
+                
+    const dim3 block_size(TILE_DIM, TILE_DIM);
+    const dim3 num_blocks(ceil(n / block_size.x), ceil(n / block_size.y));
 
     int *d_n, *d_m;
     double *d_E, *d_E_prev, *d_R;
@@ -145,7 +166,7 @@ void simulate(double *E, double *E_prev, double *R,
     cudaMemcpy(d_M2, &M2, sizeof(double), cudaMemcpyHostToDevice);
     cudaMemcpy(d_b, &b, sizeof(double), cudaMemcpyHostToDevice);
 
-	pde_ode<<<m, n>>>(d_a, d_kk, d_dt, d_n, d_m, d_E, d_R, d_epsilon, d_M1, d_M2, d_b, d_E_prev, d_alpha);
+	pde_ode<<<num_blocks, block_size>>>(d_a, d_kk, d_dt, d_n, d_m, d_E, d_R, d_epsilon, d_M1, d_M2, d_b, d_E_prev, d_alpha);
 	cudaDeviceSynchronize();
 
     cudaMemcpy(E, d_E, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyDeviceToHost);
