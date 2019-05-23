@@ -24,7 +24,7 @@
 using namespace std;
 
 // External functions
-extern "C" void splot(double **E, double T, int niter, int m, int n);
+extern "C" void splot(double *E, double T, int niter, int m, int n);
 
 void
 cmdLine(int argc, char *argv[], double &T, int &n, int &px, int &py, int &plot_freq, int &no_comm, int &num_threads);
@@ -69,36 +69,45 @@ double stats(double *E, int m, int n, double *_mx) {
 	return l2norm;
 }
 
-__global__ void ode(const double *a, const double *kk, const double *dt, const int *n, const int *m, double *E, double *R,
-                    const double *epsilon,
-                    const double *M1, const double *M2, const double *b) {
+__global__ void ghosts(const int n, const int m, double *E_prev) {
+    int j = threadIdx.x + 1;
+
+    E_prev[j * (n+2)] = E_prev[j * (n+2) + 2];
+    E_prev[j * (n+2) + (n + 1)] = E_prev[j * (n + 2) + (n - 1)];
+
+    E_prev[j] = E_prev[2 * (n + 2) + j];
+    E_prev[(m + 1) * (n + 2) + j] = E_prev[(m - 1) * (n + 2) + j];
+}
+
+__global__ void ode(const double a, const double kk, const double dt, const int n, const int m, double *E, double *R,
+                    const double epsilon,
+                    const double M1, const double M2, const double b) {
     /*
      * Solve the ODE, advancing excitation and recovery to the
      *     next timtestep
        */
     int i = threadIdx.x + 1;
     int j = blockIdx.x + 1;
-    int index = j * (*n + 2) + i;
+    int index = j * (n + 2) + i;
 
-    E[index] = E[index] - *dt * (*kk * E[index] * (E[index] - *a) * (E[index] - 1) + E[index] * R[index]);
-    R[index] = R[index] + *dt * (*epsilon + *M1 * R[index] / (E[index] + *M2)) * (-R[index] - *kk * E[index] * (E[index] - *b - 1));
+    E[index] = E[index] - dt * (kk * E[index] * (E[index] - a) * (E[index] - 1) + E[index] * R[index]);
+    R[index] = R[index] + dt * (epsilon + M1 * R[index] / (E[index] + M2)) * (-R[index] - kk * E[index] * (E[index] - b - 1));
 }
 
-__global__ void pde(const int *n, const int *m, double *E, double *E_prev, const double *alpha) {
+__global__ void pde(const int n, const int m, double *E, double *E_prev, const double alpha) {
 	int i = threadIdx.x + 1;
 	int j = blockIdx.x + 1;
-	int index = j * (*n + 2) + i;
+	int index = j * (n + 2) + i;
 	
-    E[index] = E_prev[index] + *alpha *
-                               (E_prev[index + 1] + E_prev[index - 1] - 4 * E_prev[index] + E_prev[index + *m + 2] +
-                                E_prev[index - (*m + 2)]);
+    E[index] = E_prev[index] + alpha *
+                               (E_prev[index + 1] + E_prev[index - 1] - 4 * E_prev[index] + E_prev[index + m + 2] +
+                                E_prev[index - (m + 2)]);
 }
 
 void simulate(double *E, double *E_prev, double *R,
               const double alpha, const int n, const int m, const double kk,
               const double dt, const double a, const double epsilon,
               const double M1, const double M2, const double b) {
-    int i, j;
     /*
      * Copy data from boundary of the computational box
      * to the padding region, set up for differencing
@@ -106,73 +115,9 @@ void simulate(double *E, double *E_prev, double *R,
      * Using mirror boundaries
      */
 
-		for (j = 1; j <= m; j++)
-				E_prev[j * (n+2)] = E_prev[j * (n+2) + 2];
- 		for (j = 1; j <= m; j++)
-		 		E_prev[j * (n+2) + (n + 1)] = E_prev[j * (n+2) + (n - 1)];
-
-		for (i = 1; i <= n; i++)
-				E_prev[i] = E_prev[2 * (n+2) + i];
-		for (i = 1; i <= n; i++)
-				E_prev[(m + 1) * (n+2) + i] = E_prev[(m - 1) * (n+2) + i];
-
-    int *d_n, *d_m;
-    double *d_E, *d_E_prev, *d_R;
-    double *d_alpha, *d_kk, *d_dt, *d_a, *d_epsilon, *d_M1, *d_M2, *d_b;
-
-    cudaMalloc((void **) &d_E, sizeof(double) * (m + 2) * (n + 2));
-    cudaMalloc((void **) &d_E_prev, sizeof(double) * (m + 2) * (n + 2));
-	cudaMalloc((void **) &d_R, sizeof(double) * (m + 2) * (n + 2));
-
-	cudaMalloc((void **) &d_n, sizeof(int));
-	cudaMalloc((void **) &d_m, sizeof(int));
-
-	cudaMalloc((void **) &d_alpha, sizeof(double));
-	cudaMalloc((void **) &d_kk, sizeof(double));
-	cudaMalloc((void **) &d_dt, sizeof(double));
-	cudaMalloc((void **) &d_a, sizeof(double));
-	cudaMalloc((void **) &d_epsilon, sizeof(double));
-	cudaMalloc((void **) &d_M1, sizeof(double));
-	cudaMalloc((void **) &d_M2, sizeof(double));
-	cudaMalloc((void **) &d_b, sizeof(double));
-
-    cudaMemcpy(d_E, E, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyHostToDevice);
-    cudaMemcpy(d_E_prev, E_prev, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyHostToDevice);
-	cudaMemcpy(d_R, R, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyHostToDevice);
-
-    cudaMemcpy(d_n, &n, sizeof(int), cudaMemcpyHostToDevice);
-    cudaMemcpy(d_m, &m, sizeof(int), cudaMemcpyHostToDevice);
-
-    cudaMemcpy(d_alpha, &alpha, sizeof(double), cudaMemcpyHostToDevice);
-    cudaMemcpy(d_kk, &kk, sizeof(double), cudaMemcpyHostToDevice);
-    cudaMemcpy(d_dt, &dt, sizeof(double), cudaMemcpyHostToDevice);
-    cudaMemcpy(d_a, &a, sizeof(double), cudaMemcpyHostToDevice);
-    cudaMemcpy(d_epsilon, &epsilon, sizeof(double), cudaMemcpyHostToDevice);
-    cudaMemcpy(d_M1, &M1, sizeof(double), cudaMemcpyHostToDevice);
-    cudaMemcpy(d_M2, &M2, sizeof(double), cudaMemcpyHostToDevice);
-    cudaMemcpy(d_b, &b, sizeof(double), cudaMemcpyHostToDevice);
-
-	pde<<<m, n>>>(d_n, d_m, d_E, d_E_prev, d_alpha);
-	cudaDeviceSynchronize();
-	ode<<<m, n>>>(d_a, d_kk, d_dt, d_n, d_m, d_E, d_R, d_epsilon, d_M1, d_M2, d_b);
-	cudaDeviceSynchronize();
-
-    cudaMemcpy(E, d_E, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyDeviceToHost);
-    cudaMemcpy(R, d_R, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyDeviceToHost);
-
-    cudaFree(d_E);
-    cudaFree(d_E_prev);
-    cudaFree(d_R);
-    cudaFree(d_n);
-    cudaFree(d_m);
-    cudaFree(d_alpha);
-    cudaFree(d_kk);
-    cudaFree(d_dt);
-    cudaFree(d_a);
-    cudaFree(d_epsilon);
-    cudaFree(d_M1);
-    cudaFree(d_M2);
-    cudaFree(d_b);
+    ghosts<<<1, n>>>(n, m, E_prev);
+	pde<<<m, n>>>(n, m, E, E_prev, alpha);
+	ode<<<m, n>>>(a, kk, dt, n, m, E, R, epsilon, M1, M2, b);
 }
 // Define Kernels
 
@@ -251,25 +196,41 @@ int main(int argc, char **argv) {
     // Integer timestep number
     int niter = 0;
 
+    double *d_E, *d_E_prev, *d_R;
+
+    cudaMalloc((void **) &d_E, sizeof(double) * (m + 2) * (n + 2));
+    cudaMalloc((void **) &d_E_prev, sizeof(double) * (m + 2) * (n + 2));
+	cudaMalloc((void **) &d_R, sizeof(double) * (m + 2) * (n + 2));
+
+    cudaMemcpy(d_E, E, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_E_prev, E_prev, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyHostToDevice);
+	cudaMemcpy(d_R, R, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyHostToDevice);
+
     while (t < T) {
 
         t += dt;
         niter++;
 
-        simulate(E, E_prev, R, alpha, n, m, kk, dt, a, epsilon, M1, M2, b);
+        simulate(d_E, d_E_prev, d_R, alpha, n, m, kk, dt, a, epsilon, M1, M2, b);
 
         //swap current E with previous E
-        double *tmp = E;
-        E = E_prev;
-        E_prev = tmp;
+        double *tmp = d_E;
+        d_E = d_E_prev;
+        d_E_prev = tmp;
 
         if (plot_freq) {
             int k = (int) (t / plot_freq);
             if ((t - k * plot_freq) < dt) {
-                //splot(E,t,niter,m+2,n+2);
+                splot(E, t, niter, m + 2, n + 2);
             }
         }
     }//end of while loop
+
+    cudaMemcpy(E_prev, d_E_prev, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyDeviceToHost);
+
+    cudaFree(d_E);
+    cudaFree(d_E_prev);
+    cudaFree(d_R);  
 
     double time_elapsed = getTime() - t0;
 
@@ -371,17 +332,17 @@ cmdLine(int argc, char *argv[], double &T, int &n, int &px, int &py, int &plot_f
 
 FILE *gnu = NULL;
 
-void splot(double **U, double T, int niter, int m, int n) {
+void splot(double *U, double T, int niter, int m, int n) {
     int i, j;
     if (gnu == NULL) gnu = popen("gnuplot", "w");
 
     double mx = -1, mn = 32768;
     for (j = 0; j < m; j++)
         for (i = 0; i < n; i++) {
-            if (U[j][i] > mx)
-                mx = U[j][i];
-            if (U[j][i] < mn)
-                mn = U[j][i];
+            if (U[j * m + i] > mx)
+                mx = U[j * m + i];
+            if (U[j * m + i] < mn)
+                mn = U[j * m + i];
         }
 
     fprintf(gnu, "set title \"T = %f [niter = %d]\"\n", T, niter);
@@ -397,7 +358,7 @@ void splot(double **U, double T, int niter, int m, int n) {
     fprintf(gnu, "splot [0:%d] [0:%d][%f:%f] \"-\"\n", m - 1, n - 1, mn, mx);
     for (j = 0; j < m; j++) {
         for (i = 0; i < n; i++) {
-            fprintf(gnu, "%d %d %f\n", i, j, U[i][j]);
+            fprintf(gnu, "%d %d %f\n", i, j, U[i * m + j]);
         }
         fprintf(gnu, "\n");
     }

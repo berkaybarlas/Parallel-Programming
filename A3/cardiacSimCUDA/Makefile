@@ -262,7 +262,7 @@ endif
 # Target rules
 all: build
 
-build: cardiacsim
+build: cardiacsim cardiacsim_v1 cardiacsim_v2 cardiacsim_v3 cardiacsim_v4
 
 check.deps:
 ifeq ($(SAMPLE_ENABLED),0)
@@ -274,15 +274,36 @@ endif
 cardiacsim.o:cardiacsim.cpp
 	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
 
+cardiacsim_kernels_v1.o:cardiacsim_kernels_v1.cu
+	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
+
+cardiacsim_kernels_v2.o:cardiacsim_kernels_v2.cu
+	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
+
 cardiacsim_kernels_v3.o:cardiacsim_kernels_v3.cu
 	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
 
-cardiacsim: cardiacsim_kernels_v3.o
-	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o $@ $+ $(LIBRARIES)
+cardiacsim_kernels_v4.o:cardiacsim_kernels_v4.cu
+	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
+
+cardiacsim: cardiacsim.o
+	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o cardiacsim $+ $(LIBRARIES)
+
+cardiacsim_v1: cardiacsim_kernels_v1.o
+	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o cardiacsim_kernels_v1 $+ $(LIBRARIES)
+
+cardiacsim_v2: cardiacsim_kernels_v2.o
+	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o cardiacsim_kernels_v2 $+ $(LIBRARIES)
+
+cardiacsim_v3: cardiacsim_kernels_v3.o
+	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o cardiacsim_kernels_v3 $+ $(LIBRARIES)
+
+cardiacsim_v4: cardiacsim_kernels_v4.o
+	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o cardiacsim_kernels_v4 $+ $(LIBRARIES)
 
 run: build
 	$(EXEC) ./cardiacsim
 
 clean:
-	rm -f card cardiacsim cardiacsim.o cardiacsim_kernels_v3.o
+	rm -f cardiacsim cardiacsim.o cardiacsim_kernels_v1 cardiacsim_kernels_v1.o cardiacsim_kernels_v2 cardiacsim_kernels_v2.o cardiacsim_kernels_v3 cardiacsim_kernels_v3.o cardiacsim_kernels_v4 cardiacsim_kernels_v4.o
 
