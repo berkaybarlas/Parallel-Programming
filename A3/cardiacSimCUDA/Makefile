@@ -272,7 +272,7 @@ else
 endif
 
 cardiacsim.o:cardiacsim.cpp
-	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
+	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $< -O3
 
 cardiacsim_kernels_v1.o:cardiacsim_kernels_v1.cu
 	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
@@ -287,7 +287,7 @@ cardiacsim_kernels_v4.o:cardiacsim_kernels_v4.cu
 	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
 
 cardiacsim: cardiacsim.o
-	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o cardiacsim $+ $(LIBRARIES)
+	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o cardiacsim $+ $(LIBRARIES) -O3
 
 cardiacsim_v1: cardiacsim_kernels_v1.o
 	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o cardiacsim_kernels_v1 $+ $(LIBRARIES)

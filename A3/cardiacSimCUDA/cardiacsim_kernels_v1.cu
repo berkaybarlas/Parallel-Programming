@@ -221,6 +221,7 @@ int main(int argc, char **argv) {
         if (plot_freq) {
             int k = (int) (t / plot_freq);
             if ((t - k * plot_freq) < dt) {
+                cudaMemcpy(E, d_E, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyDeviceToHost);
                 splot(E, t, niter, m + 2, n + 2);
             }
         }
