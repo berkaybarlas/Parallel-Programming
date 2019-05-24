@@ -133,7 +133,7 @@
  void simulate(double *E, double *E_prev, double *R,
                const double alpha, const int n, const int m, const double kk,
                const double dt, const double a, const double epsilon,
-               const double M1, const double M2, const double b, const dim3 block_size, const dim3 num_blocks) {
+               const double M1, const double M2, const double b) {
 
     ghosts<<<1, n>>>(n, m, E_prev);
     pde_ode<<<num_blocks, block_size>>>(a, kk, dt, n, m, E, E_prev, R, epsilon, M1, M2, b, alpha);
@@ -214,9 +214,7 @@
      double t = 0.0;
      // Integer timestep number
      int niter = 0;
-
-     const dim3 block_size(TILE_DIM, TILE_DIM);
-     const dim3 num_blocks(ceil(n / block_size.x), ceil(n / block_size.y));
+     
  
      double *d_E, *d_E_prev, *d_R;
  
@@ -233,7 +231,7 @@
          t += dt;
          niter++;
  
-         simulate(d_E, d_E_prev, d_R, alpha, n, m, kk, dt, a, epsilon, M1, M2, b, block_size, num_blocks);
+         simulate(d_E, d_E_prev, d_R, alpha, n, m, kk, dt, a, epsilon, M1, M2, b);
  
          //swap current E with previous E
          double *tmp = d_E;
@@ -243,7 +241,8 @@
          if (plot_freq) {
              int k = (int) (t / plot_freq);
              if ((t - k * plot_freq) < dt) {
-                 splot(E, t, niter, m + 2, n + 2);
+                cudaMemcpy(E, d_E, sizeof(double) * (m + 2) * (n + 2), cudaMemcpyDeviceToHost);
+                splot(E, t, niter, m + 2, n + 2);
              }
          }
      }//end of while loop
